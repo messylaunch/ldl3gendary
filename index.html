@@ -2,74 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L3GENDARY — From the Streets to Legendary | Music, Apparel, Books</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>L3GENDARY — From the Streets to Legendary</title>
 <meta name="description" content="Music. Apparel. Books. Community. Join the evolvement at L3GENDARY.">
 <meta property="og:title" content="L3GENDARY — From the Streets to Legendary">
 <meta property="og:description" content="Music. Apparel. Books. Community. Join the evolvement.">
 <meta property="og:image" content="https://www.ldl3gendary.com/wp-content/uploads/2024/05/legendary-master-300x300.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2306060D'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ═══════════════ HEADER ═══════════════ -->
 <header class="site-head" id="site-head">
   <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
-  <nav class="head-nav">
+  <nav class="head-nav" aria-label="Main navigation">
     <a href="index.html" class="nav-link active">Home</a>
     <a href="shop.html" class="nav-link">Shop</a>
     <a href="shop.html?category=music" class="nav-link">Music</a>
     <a href="shop.html?category=apparel" class="nav-link">Apparel</a>
     <a href="shop.html?category=book" class="nav-link">Book</a>
   </nav>
-  <div style="display:flex;align-items:center;gap:12px">
-    <button class="head-cart-btn" data-cart-toggle>
-      🛒 <span id="cart-count">0</span>
+  <div class="head-actions">
+    <button class="cart-trigger tappable" data-cart-toggle aria-label="Open cart">
+      <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span id="cart-count">0</span>
       <span class="cart-badge" id="cart-badge" style="display:none">0</span>
     </button>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger tappable" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- MOBILE NAV -->
-<nav class="mobile-nav" id="mobile-nav">
-  <a href="index.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Home</a>
-  <a href="shop.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Shop All</a>
-  <a href="shop.html?category=music" onclick="document.getElementById('mobile-nav').classList.remove('open')">Music</a>
-  <a href="shop.html?category=apparel" onclick="document.getElementById('mobile-nav').classList.remove('open')">Apparel</a>
-  <a href="shop.html?category=book" onclick="document.getElementById('mobile-nav').classList.remove('open')">Book</a>
-  <a href="cart.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Cart</a>
+<!-- Mobile nav -->
+<div class="mobile-nav-overlay" id="mnav-overlay"></div>
+<nav class="mobile-nav-drawer" id="mnav-drawer" aria-label="Mobile navigation">
+  <a href="index.html">Home</a><a href="shop.html">Shop All</a>
+  <a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a>
+  <a href="shop.html?category=book">Book</a><a href="cart.html">Cart</a>
 </nav>
 
-<!-- CART DRAWER -->
+<!-- Cart drawer -->
 <div class="cart-overlay" id="cart-overlay"></div>
-<aside class="cart-drawer" id="cart-drawer">
-  <div class="cart-drawer-head">
-    Your Cart (<span id="drawer-count">0</span>)
-    <button class="cart-drawer-close" id="cart-drawer-close">&times;</button>
-  </div>
-  <div class="cart-drawer-inner" id="mini-cart"></div>
-  <div class="cart-drawer-foot"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">Cart (<span id="drawer-count">0</span>)<button class="cart-drawer-close tappable" id="cart-drawer-close" aria-label="Close cart">&times;</button></div>
+  <div class="cart-drawer-body" id="mini-cart"></div>
 </aside>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-bg"></div>
-  <canvas class="particles" id="hero-particles"></canvas>
+<section class="hero" id="hero" aria-label="Hero">
+  <div class="hero-bg"></div><div class="hero-grid-bg"></div>
+  <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div class="hero-eyebrow">THE MOVEMENT</div>
     <h1 class="hero-wordmark">L3GENDARY</h1>
     <div class="hero-tagline">FROM THE STREETS<br>TO LEGENDARY</div>
-    <p class="hero-sub">Music that tells the truth. Apparel that reps the movement. A book that changes lives. Welcome to L3GENDARY.</p>
+    <p class="hero-sub">Music that tells the truth. Apparel that reps the movement. A book that changes lives.</p>
     <div class="hero-ctas">
-      <a href="shop.html" class="btn btn-accent btn-lg">Shop the Movement →</a>
-      <a href="#story" class="btn btn-ghost btn-lg">Hear the Story</a>
-      <a href="#newsletter" class="btn btn-ghost btn-lg">Join the Evolvement</a>
+      <a href="shop.html" class="btn btn-accent btn-lg tappable">Shop the Movement →</a>
+      <a href="#story" class="btn btn-ghost btn-lg tappable">Hear the Story</a>
     </div>
   </div>
-  <div class="hero-scroll"><span>SCROLL</span><div class="hero-scroll-line"></div></div>
+  <div class="hero-scroll" aria-hidden="true"><span>SCROLL</span><div class="hero-scroll-line"></div></div>
 </section>
 
 <!-- ═══════════════ STORY ═══════════════ -->
@@ -77,22 +70,27 @@
   <div class="wrap">
     <div class="story-grid">
       <div class="story-visual fade-up">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(249,115,22,0.1),transparent 60%)"></div>
         <div class="story-visual-inner">
-          <div style="font-family:var(--font-display);font-size:100px;line-height:0.5;color:var(--apparel);opacity:0.3;margin-bottom:16px">&ldquo;</div>
-          <div class="quote">I used to move weight on the streets. Now I move people toward their purpose.</div>
-          <div class="attrib">— TAVIUS LEVERETT</div>
+          <svg viewBox="0 0 48 48" fill="var(--color-apparel)" opacity="0.2" style="width:48px;height:48px;margin:0 auto 16px"><path d="M8 8 L40 8 L40 40 L8 40Z" fill="none" stroke="currentColor" stroke-width="2"/><text x="24" y="26" text-anchor="middle" font-size="28" font-family="serif" fill="currentColor">"</text></svg>
+          <div class="story-quote">I used to move weight on the streets. Now I move people toward their purpose.</div>
+          <div class="story-attrib">— TAVIUS LEVERETT</div>
         </div>
       </div>
       <div class="story-text fade-up">
-        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--apparel);margin-bottom:12px">THE ORIGIN</div>
-        <h2 style="background:linear-gradient(135deg,var(--text),var(--text-muted));-webkit-background-clip:text;background-clip:text;color:transparent">The Story</h2>
+        <div class="story-label">THE ORIGIN</div>
+        <h2>The Story</h2>
         <div class="lead">Every legend starts somewhere. This one started in the streets of Central Florida — and almost ended there.</div>
-        <p>Tavius Leverett spent years in the street economy — moving product, navigating the code, watching friends disappear. He wrote music about it. He wrote a book about it. Then he made the decision that changed everything: <strong>use those same skills to build something that gives back.</strong></p>
-        <p>L3GENDARY isn't a brand that hides the past. It's built on the truth that <strong>your past is your platform</strong> — and what you do next is what makes you legendary.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-          <a href="shop.html?category=music" class="btn btn-music">🎵 Explore Music</a>
-          <a href="shop.html?category=apparel" class="btn btn-apparel">👕 Shop Apparel</a>
+        <p>Tavius Leverett spent years in the street economy. He wrote music about it. He wrote a book about it. Then he made the decision that changed everything: <strong>use those same skills to build something that gives back.</strong></p>
+        <p>L3GENDARY is built on the truth that <strong>your past is your platform</strong> — and what you do next is what makes you legendary.</p>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)">
+          <a href="shop.html?category=music" class="btn btn-music tappable">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="17" r="3"/><circle cx="17" cy="9" r="3"/><line x1="8" y1="17" x2="18" y2="9"/></svg>
+            Explore Music
+          </a>
+          <a href="shop.html?category=apparel" class="btn btn-apparel tappable">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><line x1="8" y1="4" x2="8" y2="20"/></svg>
+            Shop Apparel
+          </a>
         </div>
       </div>
     </div>
@@ -108,43 +106,51 @@
     </div>
     <div class="cat-cards">
       <a href="shop.html?category=music" class="cat-card music fade-up">
-        <div class="cat-icon">🎵</div>
+        <div class="cat-card-icon">
+          <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--color-music)" stroke-width="2" stroke-linecap="round"><circle cx="16" cy="34" r="8"/><circle cx="38" cy="14" r="8"/><line x1="24" y1="34" x2="34" y2="18"/></svg>
+        </div>
         <h3>Music</h3>
-        <p>17 tracks of raw storytelling — from the streets to redemption. $0.99 each or $4.99 for the full catalog.</p>
-        <div class="cat-arrow" style="color:var(--music)">LISTEN NOW →</div>
+        <p>17 tracks of raw storytelling — $0.99 each or $4.99 for the full catalog.</p>
+        <div class="cat-card-arrow" style="color:var(--color-music)">LISTEN NOW →</div>
       </a>
       <a href="shop.html?category=apparel" class="cat-card apparel fade-up">
-        <div class="cat-icon">👕</div>
+        <div class="cat-card-icon">
+          <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--color-apparel)" stroke-width="2" stroke-linecap="round"><rect x="6" y="10" width="36" height="32" rx="5"/><line x1="6" y1="22" x2="42" y2="22"/><circle cx="24" cy="16" r="4"/></svg>
+        </div>
         <h3>Rawlo Apparel</h3>
         <p>Hoodies, hats, tees — streetwear with a story. Every piece reps the movement.</p>
-        <div class="cat-arrow" style="color:var(--apparel)">SHOP THE LOOK →</div>
+        <div class="cat-card-arrow" style="color:var(--color-apparel)">SHOP THE LOOK →</div>
       </a>
       <a href="product.html?id=29" class="cat-card book fade-up">
-        <div class="cat-icon">📖</div>
+        <div class="cat-card-icon">
+          <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--color-book)" stroke-width="2" stroke-linecap="round"><rect x="8" y="6" width="22" height="38" rx="2.5"/><line x1="14" y1="16" x2="24" y2="16"/><line x1="14" y1="22" x2="22" y2="22"/><line x1="14" y1="28" x2="20" y2="28"/></svg>
+        </div>
         <h3>The Book</h3>
         <p>"A Good Man Who Makes Bad Decisions" — the raw memoir behind the movement.</p>
-        <div class="cat-arrow" style="color:var(--book)">READ MORE →</div>
+        <div class="cat-card-arrow" style="color:var(--color-book)">READ MORE →</div>
       </a>
       <a href="#newsletter" class="cat-card community fade-up">
-        <div class="cat-icon">🤝</div>
+        <div class="cat-card-icon">
+          <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--color-community)" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="14" r="8"/><path d="M8 46c0-8.8 7.2-16 16-16s16 7.2 16 16"/><circle cx="16" cy="34" r="3"/><circle cx="32" cy="34" r="3"/></svg>
+        </div>
         <h3>Community</h3>
         <p>Impact of FL, speaking, events. Real work on the ground. Be part of something bigger.</p>
-        <div class="cat-arrow" style="color:var(--community)">GET INVOLVED →</div>
+        <div class="cat-card-arrow" style="color:var(--color-community)">GET INVOLVED →</div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FEATURED PRODUCTS ═══════════════ -->
+<!-- ═══════════════ FEATURED ═══════════════ -->
 <section class="section-pad" id="featured">
   <div class="wrap">
     <div class="section-head fade-up">
       <h2>What's Hot Right Now</h2>
-      <p>Hand-picked from the catalog. The tracks, fits, and reads everyone's talking about.</p>
+      <p>Hand-picked from the catalog.</p>
     </div>
-    <div class="feat-grid" id="featured-grid"></div>
-    <div style="text-align:center;margin-top:32px">
-      <a href="shop.html" class="btn btn-accent btn-lg">View All Products →</a>
+    <div class="prod-grid" id="featured-grid"></div>
+    <div style="text-align:center;margin-top:var(--space-8)">
+      <a href="shop.html" class="btn btn-accent btn-lg tappable">View All 29 Products →</a>
     </div>
   </div>
 </section>
@@ -152,19 +158,16 @@
 <!-- ═══════════════ STUDIO ═══════════════ -->
 <section class="section-pad" style="background:var(--bg-deep)">
   <div class="wrap">
-    <div class="section-head fade-up">
-      <h2>The Studio</h2>
-      <p>Watch, listen, and follow the journey across every platform.</p>
-    </div>
+    <div class="section-head fade-up"><h2>The Studio</h2><p>Watch, listen, and follow the journey across every platform.</p></div>
     <div class="studio-grid">
       <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener" class="studio-card music-bg fade-up">
-        <div class="studio-card-content"><h3>▶ YouTube</h3><p>@863l3gendary — Music videos, behind the scenes, community events</p></div>
+        <div class="studio-card-content"><h3>YouTube</h3><p>@863l3gendary — Music videos, behind the scenes</p></div>
       </a>
       <a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener" class="studio-card apparel-bg fade-up">
-        <div class="studio-card-content"><h3>📘 Facebook</h3><p>Tavius Leverett — Daily posts, lives, and community updates</p></div>
+        <div class="studio-card-content"><h3>Facebook</h3><p>Tavius Leverett — Daily posts, lives, community</p></div>
       </a>
       <a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener" class="studio-card book-bg fade-up">
-        <div class="studio-card-content"><h3>📷 Instagram</h3><p>@863l3gendary — Fit pics, music clips, and the visual side of the movement</p></div>
+        <div class="studio-card-content"><h3>Instagram</h3><p>@863l3gendary — Fit pics, music clips, visuals</p></div>
       </a>
     </div>
   </div>
@@ -174,147 +177,102 @@
 <section class="newsletter" id="newsletter">
   <div class="wrap">
     <div class="newsletter-inner fade-up">
-      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--music);margin-bottom:12px">THE EVOLVEMENT</div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;color:var(--color-music);margin-bottom:var(--space-3)">THE EVOLVEMENT</div>
       <h2>Join the Movement</h2>
-      <p>Drop your email for exclusive drops, event invites, new music alerts, and the free "From the Streets to Legendary" starter guide.</p>
-      <!-- GHL FORM SLOT — Replace with Go High Level embed -->
-      <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Welcome to the evolvement! Check your email.');this.reset()">
-        <input type="email" placeholder="your@email.com" required>
-        <button type="submit" class="btn btn-music">Join →</button>
+      <p>Drop your email for exclusive drops, event invites, new music alerts, and the free "From the Streets to Legendary" starter guide. <strong>No spam. Just the movement.</strong></p>
+      <form class="newsletter-field" onsubmit="event.preventDefault();showToast('Welcome to the evolvement! Check your email.');this.reset()">
+        <input type="email" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-music tappable">Join →</button>
       </form>
-      <p style="font-size:11px;color:var(--text-dim);margin-top:12px;font-family:var(--font-mono)">⬢ GHL-ready — swap with your Go High Level form embed</p>
+      <p style="font-size:10px;color:var(--text-dim);margin-top:var(--space-3);font-family:var(--font-mono)">⬢ GHL-ready — swap with your Go High Level form embed</p>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand"><span>L3GENDARY</span></div>
-        <p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p>
-      </div>
-      <div class="foot-col">
-        <h4>SHOP</h4>
-        <a href="shop.html">All Products</a>
-        <a href="shop.html?category=music">Music</a>
-        <a href="shop.html?category=apparel">Rawlo Apparel</a>
-        <a href="product.html?id=29">The Book</a>
-      </div>
-      <div class="foot-col">
-        <h4>CONNECT</h4>
-        <a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@863l3gendary" target="_blank" rel="noopener">TikTok</a>
-      </div>
-      <div class="foot-col">
-        <h4>INFO</h4>
-        <a href="mailto:Corporate@ldl3gendary.com">Corporate@ldl3gendary.com</a>
-        <a href="tel:+18008132959">1-800-813-2959</a>
-        <a href="cart.html">Your Cart</a>
-        <a href="#newsletter">Join Newsletter</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2024 L3GENDARY PRODUCTS</span>
-      <span>FROM THE STREETS TO LEGENDARY</span>
-    </div>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p></div>
+    <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Rawlo Apparel</a><a href="product.html?id=29">The Book</a></div>
+    <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener">Facebook</a><a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Corporate@ldl3gendary.com</a><a href="tel:+18008132959">1-800-813-2959</a><a href="cart.html">Your Cart</a></div>
   </div>
-</footer>
+  <div class="foot-bottom"><span>© 2024 L3GENDARY PRODUCTS</span><span>FROM THE STREETS TO LEGENDARY</span></div>
+</div></footer>
 
 <div class="toast" id="toast"></div>
 
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
 <script>
-/* ── Featured Products ── */
+/* ═══════════════ NAV ═══════════════ */
+const hamburger=document.getElementById('hamburger'),mnavOverlay=document.getElementById('mnav-overlay'),mnavDrawer=document.getElementById('mnav-drawer');
+function toggleMnav(s){mnavOverlay.classList.toggle('open',s);mnavDrawer.classList.toggle('open',s);hamburger.setAttribute('aria-expanded',s);document.body.style.overflow=s?'hidden':''}
+hamburger.addEventListener('click',()=>toggleMnav(!mnavDrawer.classList.contains('open')));
+mnavOverlay.addEventListener('click',()=>toggleMnav(false));
+
+/* Header scroll */
+const siteHead=document.getElementById('site-head');
+window.addEventListener('scroll',()=>{siteHead.classList.toggle('scrolled',window.scrollY>60)});
+
+/* Cart count */
+document.getElementById('drawer-count').textContent=cart.count;
+cart.onChange(()=>{
+  document.getElementById('cart-count').textContent=cart.count;
+  document.getElementById('drawer-count').textContent=cart.count;
+  const b=document.getElementById('cart-badge');
+  if(cart.count>0){b.style.display='flex';b.textContent=cart.count;b.classList.add('bump');setTimeout(()=>b.classList.remove('bump'),300)}
+  else b.style.display='none';
+});
+
+/* Featured products */
 (function(){
-  const featured = [17,18,29,8,19,24]; // Bundle, Hoodie, Book, Weekend, Red Jacket, Red Tee
-  const grid = document.getElementById('featured-grid');
-  if (!grid) return;
-  grid.innerHTML = featured.map(id => {
-    const p = L3_PRODUCTS.find(x => x.id === id);
-    if (!p) return '';
-    return `<a href="product.html?id=${p.id}" class="prod-card fade-up">
-      ${p.tag ? `<span class="prod-tag" style="background:${p.color};color:#fff">${p.tag}</span>` : ''}
+  const ids=[17,18,29,8,19,24],grid=document.getElementById('featured-grid');
+  if(!grid)return;
+  grid.innerHTML=ids.map(id=>{const p=L3_PRODUCTS.find(x=>x.id===id);if(!p)return'';
+    return`<a href="product.html?id=${p.id}" class="prod-card fade-up">
+      ${p.tag?`<span class="prod-card-tag" style="background:${p.color};color:#fff">${p.tag}</span>`:''}
       <div class="prod-card-img">
-        ${p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-        <div class="prod-card-placeholder" style="${p.image ? 'display:none' : ''};color:${p.color}">${p.category==='music'?'🎵':p.category==='apparel'?'👕':'📖'}</div>
+        ${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}
+        <div class="prod-card-placeholder" style="${p.image?'display:none':''}">
+          <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="${p.color}" stroke-width="1.5" opacity="0.5">
+            ${p.category==='music'?'<circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="6" fill="currentColor"/>':p.category==='apparel'?'<rect x="10" y="12" width="28" height="28" rx="4"/><line x1="10" y1="20" x2="38" y2="20"/>':'<rect x="8" y="8" width="22" height="34" rx="2"/><line x1="14" y1="18" x2="24" y2="18"/>'}
+          </svg>
+        </div>
       </div>
       <div class="prod-card-body">
         <div class="prod-card-cat ${p.category}">${p.type}</div>
-        <h4>${p.name}</h4>
-        <div class="artist">${p.artist}</div>
+        <h4>${p.name}</h4><div class="artist">${p.artist}</div>
         <div class="prod-card-foot">
-          <span class="prod-price">${p.salePrice ? `<span class="orig">$${p.price.toFixed(2)}</span> $${p.salePrice.toFixed(2)}` : `$${p.price.toFixed(2)}`}</span>
-          <span class="btn btn-sm" style="background:${p.color};color:#fff">View →</span>
+          <span class="prod-price">${p.salePrice?`<span class="orig">$${p.price.toFixed(2)}</span>$${p.salePrice.toFixed(2)}`:`$${p.price.toFixed(2)}`}</span>
+          <span class="prod-card-cta" style="background:${p.color};color:#fff">View →</span>
         </div>
       </div>
     </a>`;
   }).join('');
 })();
 
-/* ── Scroll Effects ── */
-const siteHead = document.getElementById('site-head');
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobile-nav');
+/* Fade-up observer */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
-hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-
-window.addEventListener('scroll', () => {
-  siteHead.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-/* ── Intersection Observer for fade-up ── */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-/* ── Hero Particles ── */
+/* Hero particles */
 (function(){
-  const canvas = document.getElementById('hero-particles');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  function resize(){ canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
-  function create(){
-    particles = Array.from({length: 50}, () => ({
-      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-      r: Math.random()*2+0.5, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4,
-      o: Math.random()*0.4+0.1, p: Math.random()*Math.PI*2,
-      hue: [168,249,59,234][Math.floor(Math.random()*4)]
-    }));
+  const c=document.getElementById('hero-particles');if(!c)return;
+  const ctx=c.getContext('2d');let ps=[];
+  function rs(){c.width=c.parentElement.offsetWidth;c.height=c.parentElement.offsetHeight}
+  function cp(){ps=Array.from({length:50},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+0.4,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,o:Math.random()*0.35+0.08,p:Math.random()*Math.PI*2,h:[168,249,59,234][Math.floor(Math.random()*4)]}))}
+  function dr(){
+    ctx.clearRect(0,0,c.width,c.height);const t=performance.now()*0.001;
+    ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
+      const a=p.o+Math.sin(t*1.5+p.p)*0.12;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.h},70%,60%,${Math.max(0.02,a)})`;ctx.fill()});
+    requestAnimationFrame(dr);
   }
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    const t = performance.now()*0.001;
-    particles.forEach(p => {
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
-      if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
-      const a = p.o + Math.sin(t*1.5+p.p)*0.15;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle = `hsla(${p.hue},70%,60%,${Math.max(0.03,a)})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  resize(); create(); draw();
-  window.addEventListener('resize', ()=>{resize();create()});
+  rs();cp();dr();window.addEventListener('resize',()=>{rs();cp()});
 })();
 
-/* ── Toast ── */
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
-}
-
-document.getElementById('drawer-count').textContent = cart.count;
-cart.onChange(() => { document.getElementById('drawer-count').textContent = cart.count; });
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
 </script>
 </body>
 </html>

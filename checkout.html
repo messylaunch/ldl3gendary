@@ -2,155 +2,178 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Checkout — L3GENDARY</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2306060D'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
 <header class="site-head scrolled">
   <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
-  <nav class="head-nav">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="shop.html" class="nav-link">Shop</a>
-    <a href="cart.html" class="nav-link">Cart</a>
-  </nav>
+  <nav class="head-nav"><a href="index.html" class="nav-link">Home</a><a href="shop.html" class="nav-link">Shop</a><a href="cart.html" class="nav-link">Cart</a></nav>
 </header>
 
-<section class="checkout-page">
+<main class="checkout-page">
   <div class="wrap">
-    <h1 style="text-align:center;margin-bottom:8px">Checkout</h1>
-    <p style="text-align:center;color:var(--text-muted);margin-bottom:32px" id="checkout-item-count"></p>
+    <h1 style="text-align:center;margin-bottom:4px">Checkout</h1>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:var(--space-8)" id="chk-count"></p>
 
-    <!-- Steps -->
-    <div class="checkout-steps">
-      <div class="checkout-step active" id="step-shipping"><span class="step-num">1</span>Shipping</div>
-      <div class="checkout-step" id="step-payment"><span class="step-num">2</span>Payment</div>
-      <div class="checkout-step" id="step-review"><span class="step-num">3</span>Review</div>
+    <div class="checkout-steps" id="chk-steps">
+      <div class="checkout-step active" id="step-1"><span class="step-dot">1</span>Shipping</div>
+      <div class="checkout-step" id="step-2"><span class="step-dot">2</span>Payment</div>
+      <div class="checkout-step" id="step-3"><span class="step-dot">3</span>Review</div>
     </div>
 
-    <div class="checkout-grid" id="checkout-content"></div>
+    <div id="checkout-content"></div>
   </div>
-</section>
+</main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.</p></div>
-      <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a></div>
-      <div class="foot-col"><h4>HELP</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="tel:+18008132959">1-800-813-2959</a></div>
-    </div>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.</p></div>
+    <div class="foot-col"><h4>HELP</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="tel:+18008132959">1-800-813-2959</a></div>
   </div>
-</footer>
+</div></footer>
 
 <div class="toast" id="toast"></div>
 
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
 <script>
-const el = document.getElementById('checkout-content');
-document.getElementById('checkout-item-count').textContent = `${cart.count} item${cart.count!==1?'s':''} in your order`;
+document.getElementById('chk-count').textContent=`${cart.count} item${cart.count!==1?'s':''} in your order`;
 
-if (cart.isEmpty) {
-  el.innerHTML = `<div class="cart-empty" style="grid-column:1/-1"><h2>Your cart is empty</h2><p>Add some items before checking out.</p><a href="shop.html" class="btn btn-accent btn-lg">Browse Shop →</a></div>`;
-} else {
-  let step = 1;
+let step=1;
+const el=document.getElementById('checkout-content');
 
-  function render(){
-    const summaryHTML = `
-      <div class="order-summary">
-        <h3>Your Order</h3>
-        ${cart.items.map(i=>`
-          <div class="order-item">
-            <div class="order-item-img" style="background:${i.color||'#333'}">${i.image?`<img src="${i.image}" alt="${i.name}">`:i.category==='music'?'🎵':i.category==='apparel'?'👕':'📖'}</div>
-            <div style="flex:1;min-width:0">
-              <div style="font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${i.name}</div>
-              <div style="font-size:11px;color:var(--text-muted)">Qty: ${i.qty}${i.variant?` · ${i.variant}`:''}</div>
-            </div>
-            <div style="font-weight:700;font-size:13px">$${(i.price*i.qty).toFixed(2)}</div>
-          </div>
-        `).join('')}
-        <div class="summary-row" style="margin-top:12px"><span>Subtotal</span><span>$${cart.subtotal.toFixed(2)}</span></div>
-        <div class="summary-row"><span>Tax</span><span>$${cart.tax.toFixed(2)}</span></div>
-        <div class="summary-row"><span>Shipping</span><span>${cart.shipping===0?'Free':`$${cart.shipping.toFixed(2)}`}</span></div>
-        <div class="summary-row total"><span>Total</span><span>$${cart.total.toFixed(2)}</span></div>
-      </div>`;
+/* Form data store */
+const formData={};
 
-    if (step===1){
-      el.innerHTML = `
-        <div class="checkout-form">
-          <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:4px">Shipping Information</h3>
-          <div class="form-row"><div class="form-group"><label>First Name</label><input placeholder="Tavius" id="ship-first"></div><div class="form-group"><label>Last Name</label><input placeholder="Leverett" id="ship-last"></div></div>
-          <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" id="ship-email"></div>
-          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(863) 555-0123" id="ship-phone"></div>
-          <div class="form-group"><label>Address</label><input placeholder="123 Main St" id="ship-addr"></div>
-          <div class="form-row"><div class="form-group"><label>City</label><input placeholder="Lakeland" id="ship-city"></div><div class="form-group"><label>State</label><select id="ship-state"><option value="">—</option><option value="FL" selected>Florida</option><option value="GA">Georgia</option><option value="AL">Alabama</option></select></div></div>
-          <div class="form-row"><div class="form-group"><label>ZIP</label><input placeholder="33801" id="ship-zip"></div></div>
-          <button class="btn btn-accent btn-lg" onclick="nextStep()" style="margin-top:8px">Continue to Payment →</button>
-        </div>${summaryHTML}`;
-    } else if (step===2){
-      el.innerHTML = `
-        <div class="checkout-form">
-          <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:4px">Payment Method</h3>
-          <div class="form-group"><label>Card Number</label><input placeholder="4242 4242 4242 4242" id="pay-card"></div>
-          <div class="form-row"><div class="form-group"><label>Expiry</label><input placeholder="MM/YY" id="pay-expiry"></div><div class="form-group"><label>CVC</label><input placeholder="123" id="pay-cvc"></div></div>
-          <div class="form-group"><label>Name on Card</label><input placeholder="Tavius Leverett" id="pay-name"></div>
-          <p style="font-size:11px;color:var(--text-dim);margin-top:8px">🔒 This is a demo. No real payment processing is configured yet.</p>
-          <button class="btn btn-accent btn-lg" onclick="nextStep()" style="margin-top:8px">Review Order →</button>
-          <button class="btn btn-ghost" onclick="prevStep()" style="margin-top:8px">← Back to Shipping</button>
-        </div>${summaryHTML}`;
-    } else {
-      el.innerHTML = `
-        <div class="checkout-form" style="text-align:center">
-          <div style="font-size:3rem;margin-bottom:16px">✅</div>
-          <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:8px">Ready to Place Your Order?</h3>
-          <p style="color:var(--text-muted);margin-bottom:8px"><strong>Shipping to:</strong> <span id="review-addr"></span></p>
-          <p style="color:var(--text-muted);margin-bottom:8px"><strong>Email:</strong> <span id="review-email"></span></p>
-          <p style="color:var(--text-muted);margin-bottom:20px"><strong>Payment:</strong> Card ending in <span id="review-card"></span></p>
-          <button class="btn btn-accent btn-lg" onclick="placeOrder()" style="width:100%">Place Order — $${cart.total.toFixed(2)} →</button>
-          <button class="btn btn-ghost" onclick="prevStep()" style="width:100%;margin-top:8px">← Back to Payment</button>
-        </div>${summaryHTML}`;
+function orderSummaryHTML(){
+  return `<div class="order-summary-card">
+    <h3>Your Order</h3>
+    ${cart.items.map(i=>`
+      <div class="order-summary-item">
+        <div class="order-summary-img" style="background:${i.color||'var(--bg)'}">${i.image?`<img src="${i.image}" alt="${i.name}">`:'📦'}</div>
+        <div style="flex:1;min-width:0"><div style="font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${i.name}</div><div style="font-size:10px;color:var(--text-muted)">Qty: ${i.qty}${i.variant?` · ${i.variant}`:''}</div></div>
+        <div style="font-weight:700;font-size:12px">$${(i.price*i.qty).toFixed(2)}</div>
+      </div>
+    `).join('')}
+    <div class="summary-row" style="margin-top:12px"><span>Subtotal</span><span>$${cart.subtotal.toFixed(2)}</span></div>
+    <div class="summary-row"><span>Tax</span><span>$${cart.tax.toFixed(2)}</span></div>
+    <div class="summary-row"><span>Shipping</span><span>${cart.shipping===0?'Free':`$${cart.shipping.toFixed(2)}`}</span></div>
+    <div class="summary-row divider"><span>Total</span><span>$${cart.total.toFixed(2)}</span></div>
+  </div>`;
+}
 
-      /* Fill review data */
-      document.getElementById('review-addr').textContent = [
-        document.getElementById('ship-addr')?.value||'123 Main St',
-        document.getElementById('ship-city')?.value||'Lakeland',
-        document.getElementById('ship-state')?.value||'FL',
-        document.getElementById('ship-zip')?.value||'33801'
-      ].join(', ');
-      document.getElementById('review-email').textContent = document.getElementById('ship-email')?.value||'you@email.com';
-      document.getElementById('review-card').textContent = '••••'+(document.getElementById('pay-card')?.value?.slice(-4)||'4242');
-    }
+function updateSteps(){
+  document.querySelectorAll('.checkout-step').forEach(s=>s.classList.remove('active','done'));
+  for(let i=1;i<=3;i++){
+    const s=document.getElementById('step-'+i);
+    if(i<step)s.classList.add('done');
+    if(i===step)s.classList.add('active');
+  }
+}
 
-    /* Update step indicators */
-    document.querySelectorAll('.checkout-step').forEach(s=>s.classList.remove('active','done'));
-    for (let i=1;i<=3;i++){
-      const s = document.getElementById('step-'+(i===1?'shipping':i===2?'payment':'review'));
-      if (i<step) s.classList.add('done');
-      if (i===step) s.classList.add('active');
-    }
+function validateStep1(){
+  const fields=['ship-first','ship-last','ship-email','ship-addr','ship-city','ship-state','ship-zip'];
+  let valid=true;
+  fields.forEach(id=>{
+    const input=document.getElementById(id);
+    if(!input)return;
+    const v=input.value.trim();
+    if(!v){input.classList.add('error');valid=false}else{input.classList.remove('error')}
+  });
+  const email=document.getElementById('ship-email');
+  if(email&&email.value.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){email.classList.add('error');valid=false}
+  return valid;
+}
+
+function collectForm(prefix,fields){
+  fields.forEach(id=>{const el=document.getElementById(prefix+id);if(el)formData[id]=el.value.trim()});
+}
+
+function render(){
+  updateSteps();
+  const summary=orderSummaryHTML();
+
+  if(cart.isEmpty){
+    el.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px 0"><h2>Your cart is empty</h2><p style="color:var(--text-muted);margin:12px 0 24px">Add some items before checking out.</p><a href="shop.html" class="btn btn-accent btn-lg tappable">Browse Shop</a></div>`;
+    return;
   }
 
-  window.nextStep = ()=>{if(step<3){step++;render();window.scrollTo(0,0)}};
-  window.prevStep = ()=>{if(step>1){step--;render();window.scrollTo(0,0)}};
-  window.placeOrder = ()=>{
-    el.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 0">
-      <div style="font-size:4rem;margin-bottom:20px">🎉</div>
-      <h2>Order Confirmed!</h2>
-      <p style="color:var(--text-muted);margin:12px 0 8px">Your order has been placed. Check your email for confirmation.</p>
-      <p style="color:var(--text-dim);font-size:13px;margin-bottom:24px">Order #L3-${Date.now().toString(36).toUpperCase()}</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="shop.html" class="btn btn-accent">Continue Shopping</a>
-        <a href="index.html" class="btn btn-ghost">Back to Home</a>
-      </div>
+  if(step===1){
+    el.innerHTML=`<div class="checkout-grid">
+      <div class="checkout-form">
+        <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:4px;letter-spacing:0.04em">Shipping Information</h3>
+        <div class="form-row"><div class="form-field"><label for="ship-first">First Name</label><input id="ship-first" placeholder="Tavius" value="${formData['ship-first']||''}"><span class="field-error">Required</span></div><div class="form-field"><label for="ship-last">Last Name</label><input id="ship-last" placeholder="Leverett" value="${formData['ship-last']||''}"><span class="field-error">Required</span></div></div>
+        <div class="form-field"><label for="ship-email">Email</label><input type="email" id="ship-email" placeholder="you@email.com" value="${formData['ship-email']||''}"><span class="field-error">Valid email required</span></div>
+        <div class="form-field"><label for="ship-phone">Phone</label><input type="tel" id="ship-phone" placeholder="(863) 555-0123" value="${formData['ship-phone']||''}"></div>
+        <div class="form-field"><label for="ship-addr">Address</label><input id="ship-addr" placeholder="123 Main St" value="${formData['ship-addr']||''}"><span class="field-error">Required</span></div>
+        <div class="form-row"><div class="form-field"><label for="ship-city">City</label><input id="ship-city" placeholder="Lakeland" value="${formData['ship-city']||''}"><span class="field-error">Required</span></div><div class="form-field"><label for="ship-state">State</label><select id="ship-state"><option value="">—</option><option value="FL" ${(formData['ship-state']||'FL')==='FL'?'selected':''}>Florida</option><option value="GA" ${formData['ship-state']==='GA'?'selected':''}>Georgia</option><option value="AL" ${formData['ship-state']==='AL'?'selected':''}>Alabama</option></select></div></div>
+        <div class="form-row"><div class="form-field"><label for="ship-zip">ZIP Code</label><input id="ship-zip" placeholder="33801" value="${formData['ship-zip']||''}"><span class="field-error">Required</span></div></div>
+        <button class="btn btn-accent btn-lg tappable" onclick="goNext()">Continue to Payment →</button>
+      </div>${summary}
     </div>`;
-    cart.clear();
-    showToast('Order placed! Thank you for your purchase.');
-  };
-
-  render();
+  }else if(step===2){
+    el.innerHTML=`<div class="checkout-grid">
+      <div class="checkout-form">
+        <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:4px;letter-spacing:0.04em">Payment Method</h3>
+        <div class="form-field"><label for="pay-card">Card Number</label><input id="pay-card" placeholder="4242 4242 4242 4242" value="${formData['pay-card']||''}"><span class="field-error">Required</span></div>
+        <div class="form-row"><div class="form-field"><label for="pay-expiry">Expiry</label><input id="pay-expiry" placeholder="MM/YY" value="${formData['pay-expiry']||''}"><span class="field-error">Required</span></div><div class="form-field"><label for="pay-cvc">CVC</label><input id="pay-cvc" placeholder="123" value="${formData['pay-cvc']||''}"><span class="field-error">Required</span></div></div>
+        <div class="form-field"><label for="pay-name">Name on Card</label><input id="pay-name" placeholder="Tavius Leverett" value="${formData['pay-name']||''}"><span class="field-error">Required</span></div>
+        <p style="font-size:11px;color:var(--text-dim);margin-top:8px">🔒 This is a demo checkout. No real payment is processed.</p>
+        <button class="btn btn-accent btn-lg tappable" onclick="goNext()">Review Order →</button>
+        <button class="btn btn-ghost tappable" style="margin-top:8px" onclick="step--;render();window.scrollTo(0,0)">← Back to Shipping</button>
+      </div>${summary}
+    </div>`;
+  }else{
+    el.innerHTML=`<div class="checkout-grid">
+      <div class="checkout-form checkout-confirm">
+        <div class="confirm-icon"><svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--success)" stroke-width="3" style="width:56px;height:56px;margin:0 auto"><circle cx="24" cy="24" r="20"/><polyline points="14,24 21,31 35,18"/></svg></div>
+        <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px;color:var(--text)">Ready to Place Order?</h3>
+        <p style="color:var(--text-muted);margin-bottom:4px"><strong>Ship to:</strong> ${formData['ship-first']} ${formData['ship-last']}, ${formData['ship-addr']}, ${formData['ship-city']}, ${formData['ship-state']} ${formData['ship-zip']}</p>
+        <p style="color:var(--text-muted);margin-bottom:4px"><strong>Email:</strong> ${formData['ship-email']}</p>
+        <p style="color:var(--text-muted);margin-bottom:20px"><strong>Payment:</strong> Card ending in ${(formData['pay-card']||'4242').slice(-4)}</p>
+        <button class="btn btn-accent btn-lg btn-block tappable" onclick="placeOrder()">Place Order — $${cart.total.toFixed(2)}</button>
+        <button class="btn btn-ghost tappable" style="margin-top:8px;width:100%" onclick="step--;render();window.scrollTo(0,0)">← Back to Payment</button>
+      </div>${summary}
+    </div>`;
+  }
 }
+
+function goNext(){
+  if(step===1){
+    collectForm('ship-',['first','last','email','phone','addr','city','state','zip']);
+    if(!validateStep1()){showToast('Please fill in all required fields');return}
+  }
+  if(step===2){
+    collectForm('pay-',['card','expiry','cvc','name']);
+    const fields=['pay-card','pay-expiry','pay-cvc','pay-name'];
+    let ok=true;
+    fields.forEach(id=>{const el=document.getElementById(id);if(el&&!el.value.trim()){el.classList.add('error');ok=false}});
+    if(!ok){showToast('Please fill in all payment fields');return}
+  }
+  step++;render();window.scrollTo(0,0);
+}
+
+function placeOrder(){
+  const orderId='L3-'+Date.now().toString(36).toUpperCase();
+  el.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px 0" class="checkout-confirm">
+    <div class="confirm-icon"><svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--success)" stroke-width="3" style="width:64px;height:64px;margin:0 auto 16px"><circle cx="24" cy="24" r="20"/><polyline points="14,24 21,31 35,18"/></svg></div>
+    <h2>Order Confirmed!</h2>
+    <p style="color:var(--text-muted);margin:12px 0 4px">Your order has been placed and a confirmation has been sent to <strong>${formData['ship-email']||'your email'}</strong>.</p>
+    <p style="color:var(--text-dim);font-size:13px;font-family:var(--font-mono);margin-bottom:24px">Order #${orderId}</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="shop.html" class="btn btn-accent tappable">Continue Shopping</a>
+      <a href="index.html" class="btn btn-ghost tappable">Back to Home</a>
+    </div>
+  </div>`;
+  cart.clear();
+  showToast('Order placed! Confirmation sent to your email.');
+}
+
+if(cart.isEmpty){render()}else{render()}
 
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
 </script>

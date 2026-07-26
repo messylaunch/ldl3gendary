@@ -2,189 +2,266 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Product — L3GENDARY</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="L3GENDARY product detail">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2306060D'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
+<!-- ═══════════════ HEADER ═══════════════ -->
 <header class="site-head scrolled" id="site-head">
   <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
-  <nav class="head-nav">
+  <nav class="head-nav" aria-label="Main navigation">
     <a href="index.html" class="nav-link">Home</a>
     <a href="shop.html" class="nav-link active">Shop</a>
     <a href="shop.html?category=music" class="nav-link">Music</a>
     <a href="shop.html?category=apparel" class="nav-link">Apparel</a>
     <a href="shop.html?category=book" class="nav-link">Book</a>
   </nav>
-  <div style="display:flex;align-items:center;gap:12px">
-    <button class="head-cart-btn" data-cart-toggle>🛒 <span id="cart-count">0</span></button>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="head-actions">
+    <button class="cart-trigger tappable" data-cart-toggle aria-label="Open cart">
+      <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span id="cart-count">0</span>
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </button>
+    <button class="hamburger tappable" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<nav class="mobile-nav" id="mobile-nav">
+<!-- Mobile nav -->
+<div class="mobile-nav-overlay" id="mnav-overlay"></div>
+<nav class="mobile-nav-drawer" id="mnav-drawer" aria-label="Mobile navigation">
   <a href="index.html">Home</a><a href="shop.html">Shop All</a>
   <a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a>
   <a href="shop.html?category=book">Book</a><a href="cart.html">Cart</a>
 </nav>
 
+<!-- Cart drawer -->
 <div class="cart-overlay" id="cart-overlay"></div>
-<aside class="cart-drawer" id="cart-drawer">
-  <div class="cart-drawer-head">Cart (<span id="drawer-count">0</span>)<button class="cart-drawer-close" id="cart-drawer-close">&times;</button></div>
-  <div class="cart-drawer-inner" id="mini-cart"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">Cart (<span id="drawer-count">0</span>)<button class="cart-drawer-close tappable" id="cart-drawer-close" aria-label="Close cart">&times;</button></div>
+  <div class="cart-drawer-body" id="mini-cart"></div>
 </aside>
 
-<section class="prod-detail" id="prod-detail">
+<!-- ═══════════════ PRODUCT DETAIL ═══════════════ -->
+<main class="prod-detail" id="prod-detail">
   <div class="wrap">
-    <div class="prod-detail-grid" id="prod-content">
-      <!-- Dynamically filled -->
+    <div id="prod-content">
+      <!-- Skeleton loader -->
+      <div class="prod-detail-grid">
+        <div><div class="skeleton skeleton-img"></div></div>
+        <div>
+          <div class="skeleton skeleton-text" style="width:40%"></div>
+          <div class="skeleton skeleton-text" style="margin-top:8px"></div>
+          <div class="skeleton skeleton-text short"></div>
+          <div class="skeleton skeleton-price" style="margin-top:16px"></div>
+          <div class="skeleton skeleton-text short" style="margin-top:16px"></div>
+          <div class="skeleton skeleton-text" style="height:44px;margin-top:16px"></div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p></div>
-      <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Rawlo Apparel</a></div>
-      <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett">Facebook</a><a href="https://www.youtube.com/@863l3gendary">YouTube</a></div>
-      <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="cart.html">Cart</a></div>
-    </div>
-    <div class="foot-bottom"><span>© 2024 L3GENDARY PRODUCTS</span><span>FROM THE STREETS TO LEGENDARY</span></div>
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p></div>
+    <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a></div>
+    <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener">Facebook</a><a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener">YouTube</a></div>
+    <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="cart.html">Cart</a></div>
   </div>
-</footer>
+  <div class="foot-bottom"><span>© 2024 L3GENDARY PRODUCTS</span><span>FROM THE STREETS TO LEGENDARY</span></div>
+</div></footer>
 
 <div class="toast" id="toast"></div>
 
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
 <script>
+/* ═══════════════ GLOBAL STATE (not block-scoped — fixes the bug) ═══════════════ */
+let product = null;
+let selectedVariant = null;
+
+/* ═══════════════ NAV ═══════════════ */
 const hamburger = document.getElementById('hamburger');
-hamburger.addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
+const mnavOverlay = document.getElementById('mnav-overlay');
+const mnavDrawer = document.getElementById('mnav-drawer');
+function toggleMnav(show){
+  mnavOverlay.classList.toggle('open',show);
+  mnavDrawer.classList.toggle('open',show);
+  hamburger.setAttribute('aria-expanded',show);
+  document.body.style.overflow = show?'hidden':'';
+}
+hamburger.addEventListener('click',()=>toggleMnav(!mnavDrawer.classList.contains('open')));
+mnavOverlay.addEventListener('click',()=>toggleMnav(false));
 
+/* ═══════════════ CART ═══════════════ */
 document.getElementById('drawer-count').textContent = cart.count;
-cart.onChange(()=>{document.getElementById('drawer-count').textContent=cart.count});
+cart.onChange(()=>{
+  document.getElementById('cart-count').textContent = cart.count;
+  document.getElementById('drawer-count').textContent = cart.count;
+  const badge = document.getElementById('cart-badge');
+  if (cart.count > 0){ badge.style.display='flex'; badge.textContent=cart.count; badge.classList.add('bump'); setTimeout(()=>badge.classList.remove('bump'),300) }
+  else badge.style.display='none';
+});
 
-/* ── Load product from URL ── */
+/* ═══════════════ LOAD PRODUCT ═══════════════ */
 const params = new URLSearchParams(window.location.search);
 const prodId = parseInt(params.get('id'));
-const product = L3_PRODUCTS.find(p=>p.id===prodId);
+product = L3_PRODUCTS.find(p=>p.id===prodId);
 
 const container = document.getElementById('prod-content');
-if (!product) {
-  container.innerHTML = `<div style="text-align:center;padding:60px"><h2>Product Not Found</h2><p style="color:var(--text-muted);margin:12px 0 24px">The product you're looking for doesn't exist.</p><a href="shop.html" class="btn btn-accent">Browse Shop</a></div>`;
-} else {
-  document.title = `${product.name} — L3GENDARY`;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', product.description);
 
-  const catName = L3_CATEGORIES[product.category]?.name || product.category;
-  const catIcon = L3_CATEGORIES[product.category]?.icon || '';
-  const hasVariants = product.variants && product.variants.length > 0;
-  const isBundle = product.id === 17;
+function getQty(){ const el=document.getElementById('qty-input'); return el?parseInt(el.value)||1:1; }
+function getPrice(){ const p = product.salePrice||product.price; return p*getQty(); }
+
+function renderProduct(){
+  if (!product){
+    container.innerHTML = `<div style="text-align:center;padding:80px 0">
+      <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" stroke="var(--text-dim)" stroke-width="2" style="margin:0 auto 16px;opacity:0.3"><circle cx="24" cy="24" r="20"/><line x1="24" y1="16" x2="24" y2="28"/><circle cx="24" cy="33" r="1.5" fill="var(--text-dim)"/></svg>
+      <h2>Product Not Found</h2>
+      <p style="color:var(--text-muted);margin:12px 0 24px">This product may have been removed or the link is incorrect.</p>
+      <a href="shop.html" class="btn btn-accent">Browse Shop</a>
+    </div>`;
+    document.title = 'Not Found — L3GENDARY';
+    return;
+  }
+
+  document.title = `${product.name} — L3GENDARY`;
+  const descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta) descMeta.setAttribute('content',product.description);
+
+  const catName = L3_CATEGORIES[product.category]?.name||product.category;
+  const catColor = product.color;
+  const hasVariants = product.variants?.length>0;
+  const isBundle = product.id===17;
+  selectedVariant = hasVariants ? product.variants[0] : null;
 
   container.innerHTML = `
-    <div class="prod-gallery">
-      <div class="prod-gallery-main" id="gallery-main">
-        ${product.image
-          ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-          : ''}
-        <div class="prod-gallery-placeholder" style="${product.image?'display:none':''};color:${product.color}">
-          ${product.category==='music'?'🎵':product.category==='apparel'?'👕':'📖'}
-        </div>
-      </div>
-    </div>
-    <div class="prod-info">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <a href="shop.html?category=${product.category}">${catName}</a> / ${product.name}
-      </div>
-      ${product.tag ? `<span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;background:${product.color};color:#fff;margin-bottom:12px">${product.tag}</span>` : ''}
-      <h1>${product.name}</h1>
-      <div class="prod-artist">${product.artist} · ${catIcon} ${product.type}</div>
-      <div class="prod-price-large">
-        ${product.salePrice ? `<span class="orig">$${product.price.toFixed(2)}</span> $${product.salePrice.toFixed(2)}` : `$${product.price.toFixed(2)}`}
-        ${product.salePrice ? `<span style="font-size:0.85rem;color:var(--success);font-weight:600;margin-left:8px">Save $${(product.price-product.salePrice).toFixed(2)}</span>` : ''}
-      </div>
-      <div class="prod-desc">${product.description}</div>
-
-      ${hasVariants ? `
-        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Size</div>
-        <div class="prod-variants" id="prod-variants">
-          ${product.variants.map((v,i)=>`<button class="var-btn ${i===0?'active':''}" data-var="${v}">${v}</button>`).join('')}
-        </div>
-      ` : ''}
-
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Quantity</div>
-      <div class="prod-qty" id="prod-qty">
-        <button class="qty-btn" onclick="changeQty(-1)">−</button>
-        <input class="qty-input" id="qty-input" type="number" value="1" min="1" max="99" readonly>
-        <button class="qty-btn" onclick="changeQty(1)">+</button>
-      </div>
-
-      <div class="prod-actions">
-        <button class="btn btn-accent btn-lg" id="btn-add-cart" onclick="addToCart()">Add to Cart — <span id="btn-price">${product.salePrice ? '$'+product.salePrice.toFixed(2) : '$'+product.price.toFixed(2)}</span></button>
-        <button class="btn btn-ghost btn-lg" onclick="addToCart();window.location='checkout.html'">Buy Now →</button>
-      </div>
-
-      ${isBundle ? `
-        <div style="margin-top:24px;padding:16px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm)">
-          <div style="font-weight:700;color:var(--success);margin-bottom:6px">💰 Bundle Includes All 17 Tracks:</div>
-          <div style="font-size:12px;color:var(--text-muted);line-height:1.8;column-count:2">
-            ${L3_PRODUCTS.filter(p=>p.category==='music'&&p.id!==17).map(p=>p.name).join(', ')}
+    <div class="prod-detail-grid">
+      <!-- Gallery -->
+      <div class="prod-gallery">
+        <div class="prod-gallery-main" id="gallery-main">
+          ${product.image
+            ?`<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+            :''}
+          <div class="prod-card-placeholder" style="${product.image?'display:none':''}">
+            <svg class="icon icon-xl" viewBox="0 0 48 48" fill="none" style="color:${catColor};opacity:0.5">
+              ${product.category==='music'
+                ?'<circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="currentColor"/>'
+                :product.category==='apparel'
+                ?'<rect x="10" y="12" width="28" height="28" rx="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="2"/>'
+                :'<rect x="8" y="8" width="22" height="34" rx="2" stroke="currentColor" stroke-width="2"/><line x1="14" y1="18" x2="24" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="24" x2="22" y2="24" stroke="currentColor" stroke-width="1.5"/>'}
+            </svg>
           </div>
         </div>
-      ` : ''}
+      </div>
 
-      ${product.category==='music' && !isBundle ? `
-        <div style="margin-top:20px;padding:14px;background:var(--music-bg);border:1px solid rgba(168,85,247,0.2);border-radius:var(--radius-sm)">
-          <span style="font-weight:600;color:var(--music)">💡 Tip:</span>
-          <span style="font-size:13px;color:var(--text-muted)"> Get all 17 tracks for just <strong style="color:var(--success)">$4.99</strong> — <a href="product.html?id=17" style="color:var(--music);text-decoration:underline">check out the bundle</a></span>
+      <!-- Info -->
+      <div class="prod-info">
+        <nav class="prod-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span>/</span>
+          <a href="shop.html">Shop</a> <span>/</span>
+          <a href="shop.html?category=${product.category}">${catName}</a> <span>/</span>
+          <span>${product.name}</span>
+        </nav>
+
+        ${product.tag?`<span style="display:inline-block;padding:3px 10px;border-radius:var(--radius-full);font-size:10px;font-weight:700;background:${catColor};color:#fff;margin-bottom:12px">${product.tag}</span>`:''}
+
+        <h1>${product.name}</h1>
+        <div class="prod-byline">${product.artist} · ${product.type}</div>
+        <div class="prod-price-lg">
+          ${product.salePrice
+            ?`<span class="orig">$${product.price.toFixed(2)}</span>$${product.salePrice.toFixed(2)}<span class="save">Save $${(product.price-product.salePrice).toFixed(2)}</span>`
+            :`$${product.price.toFixed(2)}`}
         </div>
-      ` : ''}
+        <div class="prod-desc">${product.description}</div>
+
+        ${hasVariants?`
+          <div class="var-label">Size</div>
+          <div class="var-group" id="var-group">
+            ${product.variants.map((v,i)=>`<button class="var-btn tappable${i===0?' active':''}" data-var="${v}" role="radio" aria-checked="${i===0}">${v}</button>`).join('')}
+          </div>
+        `:''}
+
+        <div class="var-label">Quantity</div>
+        <div class="qty-group" id="qty-group">
+          <button class="qty-btn tappable" onclick="changeQty(-1)" aria-label="Decrease quantity">−</button>
+          <input class="qty-input" id="qty-input" type="number" value="1" min="1" max="99" readonly aria-label="Quantity">
+          <button class="qty-btn tappable" onclick="changeQty(1)" aria-label="Increase quantity">+</button>
+        </div>
+
+        <div class="prod-actions">
+          <button class="btn btn-accent btn-lg tappable" id="btn-add-cart" onclick="addToCart()">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Add to Cart — <span id="btn-price">$${(product.salePrice||product.price).toFixed(2)}</span>
+          </button>
+          <button class="btn btn-primary btn-lg tappable" onclick="buyNow()">Buy Now →</button>
+        </div>
+
+        ${isBundle?`
+          <div class="upsell-box bundle">
+            <strong>💰 Bundle Includes All 17 Tracks</strong>
+            ${L3_PRODUCTS.filter(p=>p.category==='music'&&p.id!==17).map(p=>p.name).join(' · ')}
+          </div>
+        `:''}
+
+        ${product.category==='music'&&!isBundle?`
+          <div class="upsell-box music">
+            <strong>💡 Get all 17 tracks for just $4.99</strong>
+            <a href="product.html?id=17" style="color:var(--color-music);text-decoration:underline;font-weight:600">View the complete bundle →</a>
+          </div>
+        `:''}
+      </div>
     </div>
   `;
 
-  /* Variant selection */
-  let selectedVariant = hasVariants ? product.variants[0] : null;
-  document.querySelectorAll('.var-btn').forEach(btn=>{
+  /* Bind variant clicks AFTER DOM is rendered */
+  document.querySelectorAll('#var-group .var-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
-      document.querySelectorAll('.var-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
+      document.querySelectorAll('#var-group .var-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-checked','false')});
+      btn.classList.add('active');btn.setAttribute('aria-checked','true');
       selectedVariant = btn.dataset.var;
     });
   });
 }
 
-/* Qty controls */
 function changeQty(delta){
   const input = document.getElementById('qty-input');
-  let v = parseInt(input.value) + delta;
+  if (!input) return;
+  let v = parseInt(input.value)+delta;
   if (v<1) v=1; if (v>99) v=99;
   input.value = v;
-  updateBtnPrice();
-}
-function getQty(){ return parseInt(document.getElementById('qty-input').value)||1; }
-function updateBtnPrice(){
-  const price = product.salePrice||product.price;
-  document.getElementById('btn-price').textContent = '$'+(price*getQty()).toFixed(2);
+  const el = document.getElementById('btn-price');
+  if (el) el.textContent = '$'+(getPrice()).toFixed(2);
 }
 
 function addToCart(){
-  cart.add(product.id, getQty(), selectedVariant);
+  if (!product) return;
+  cart.add(product.id,getQty(),selectedVariant);
   const btn = document.getElementById('btn-add-cart');
-  btn.textContent = '✓ Added!';
-  btn.style.background = '#22C55E';
-  showToast(`${product.name} added to cart!`);
+  btn.innerHTML = '✓ Added!';
+  btn.style.background='var(--success)';
+  showToast(`${product.name} added to cart`);
   setTimeout(()=>{
-    btn.innerHTML = `Add to Cart — <span id="btn-price">${product.salePrice?'$'+product.salePrice.toFixed(2):'$'+product.price.toFixed(2)}</span>`;
-    btn.style.background = '';
+    btn.innerHTML = `<svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Add to Cart — <span id="btn-price">$${(getPrice()).toFixed(2)}</span>`;
+    btn.style.background='';
   },1800);
-  /* Re-bind price update */
-  updateBtnPrice();
 }
 
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
+function buyNow(){ addToCart(); window.location='checkout.html'; }
+
+renderProduct();
+
+/* Toast */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
 </script>
 </body>
 </html>
