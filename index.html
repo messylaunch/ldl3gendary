@@ -4,1203 +4,317 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L3GENDARY — From the Streets to Legendary | Music, Apparel, Books</title>
-<meta name="description" content="L3GENDARY is more than a brand — it's a movement. Music, Rawlo Apparel, books, and community. Founded by Tavius Leverett. Join the evolvement.">
-
-<!-- Open Graph -->
+<meta name="description" content="Music. Apparel. Books. Community. Join the evolvement at L3GENDARY.">
 <meta property="og:title" content="L3GENDARY — From the Streets to Legendary">
 <meta property="og:description" content="Music. Apparel. Books. Community. Join the evolvement.">
 <meta property="og:image" content="https://www.ldl3gendary.com/wp-content/uploads/2024/05/legendary-master-300x300.jpg">
-<meta property="og:type" content="website">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Brand",
-  "name": "L3GENDARY",
-  "description": "Lifestyle brand encompassing music, apparel, books, and community empowerment.",
-  "url": "https://www.ldl3gendary.com",
-  "logo": "https://www.ldl3gendary.com/wp-content/uploads/2024/05/legendary-master-300x300.jpg",
-  "founder": { "@type": "Person", "name": "Tavius Leverett" },
-  "sameAs": [
-    "https://www.facebook.com/tavius.leverett",
-    "https://www.youtube.com/@863l3gendary",
-    "https://www.instagram.com/863l3gendary",
-    "https://www.tiktok.com/@863l3gendary"
-  ]
-}
-</script>
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23C8A44E'/%3E%3Cstop offset='100%25' stop-color='%23F0D68A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='96' height='96' rx='20' fill='%2308080A'/%3E%3Cpath d='M28 72 L48 28 L68 72Z' fill='none' stroke='url(%23g)' stroke-width='5' stroke-linejoin='round'/%3E%3Ctext x='48' y='84' text-anchor='middle' font-family='Arial Black' font-weight='900' font-size='18' fill='url(%23g)'%3EL3%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
-<style>
-/* ============================================================
-   L3GENDARY — Cinematic Scroll-Film
-   "From the Streets to Legendary"
-   Brand: Raw luxury. Street-born. Aspirational.
-   ============================================================ */
-
-/* ---------- TOKENS ---------- */
-:root {
-  --obsidian: #08080A;
-  --obsidian-2: #0E0E12;
-  --obsidian-3: #141419;
-  --gold: #C8A44E;
-  --gold-deep: #8B6918;
-  --gold-bright: #F0D68A;
-  --gold-pale: #FBF3D5;
-  --crimson: #9B1B1A;
-  --crimson-bright: #C53030;
-  --white: #F8F6F0;
-  --warm-gray: #A8A49A;
-  --muted: #6B6760;
-  --line: #262620;
-  --line-light: #3A3832;
-
-  --display: 'Bebas Neue', 'Arial Narrow', sans-serif;
-  --body: 'Inter', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
-
-  --gold-grad: linear-gradient(175deg, #F0D68A 0%, #C8A44E 35%, #8B6918 70%, #C8A44E 100%);
-  --gold-grad-subtle: linear-gradient(175deg, rgba(240,214,138,0.3) 0%, rgba(200,164,78,0.15) 50%, rgba(139,105,24,0.05) 100%);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: auto; overflow-x: hidden; }
-html.lenis { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
-.lenis.lenis-scrolling iframe { pointer-events: none; }
-
-body {
-  font-family: var(--body);
-  color: var(--white);
-  background: var(--obsidian);
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, .display { font-family: var(--display); font-weight: 400; line-height: 0.92; text-transform: uppercase; letter-spacing: 0.015em; }
-img, svg { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; border: 0; }
-::selection { background: var(--gold); color: var(--obsidian); }
-:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
-
-/* ---------- UTILITY ---------- */
-.wrap { width: min(1240px, 90vw); margin: 0 auto; }
-.eyebrow {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--gold); display: flex; align-items: center; gap: 14px;
-}
-.eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-.section-pad { padding: clamp(80px, 12vw, 140px) 0; }
-
-/* ---------- BUTTONS ---------- */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  font-family: var(--body); font-weight: 700; font-size: 14px; letter-spacing: 0.04em;
-  padding: 16px 30px; border-radius: 4px; min-height: 52px;
-  transition: transform 0.25s, box-shadow 0.25s, background 0.25s, filter 0.25s;
-}
-.btn-gold { background: var(--gold-grad); color: #151004; box-shadow: 0 6px 24px rgba(200,164,78,0.32); }
-.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,164,78,0.48); filter: brightness(1.06); }
-.btn-ghost { background: transparent; color: var(--white); border: 1.5px solid var(--line-light); }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-bright); background: rgba(200,164,78,0.06); transform: translateY(-2px); }
-.btn-crimson { background: var(--crimson); color: #fff; box-shadow: 0 6px 20px rgba(155,27,26,0.35); }
-.btn-crimson:hover { background: var(--crimson-bright); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(155,27,26,0.5); }
-.btn-white { background: var(--white); color: var(--obsidian); }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(248,246,240,0.2); }
-
-/* ---------- HEADER ---------- */
-.site-head {
-  position: fixed; inset: 0 0 auto 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px clamp(18px, 4vw, 44px);
-  transition: background 0.4s, border-color 0.4s;
-  background: linear-gradient(180deg, rgba(8,8,10,0.94), rgba(8,8,10,0));
-  border-bottom: 1px solid transparent;
-}
-.site-head.scrolled { background: rgba(8,8,10,0.96); border-bottom-color: var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-.brand-mark { display: flex; align-items: center; gap: 12px; }
-.crown-icon { width: 42px; height: 42px; flex: none; }
-.brand-name { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.04em; line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.nav-links { display: flex; align-items: center; gap: 4px; }
-.nav-links a {
-  font-weight: 600; font-size: 0.84rem; color: rgba(248,246,240,0.78);
-  padding: 10px 14px; border-radius: 6px; min-height: 40px; display: inline-flex; align-items: center;
-  transition: color 0.2s, background 0.2s;
-}
-.nav-links a:hover { color: var(--gold-bright); background: rgba(200,164,78,0.1); }
-.head-cta { font-size: 0.84rem; padding: 10px 20px; min-height: 40px; }
-
-@media (max-width: 860px) {
-  .nav-links .nav-link { display: none; }
-  .brand-name { font-size: 1.3rem; }
-  .crown-icon { width: 34px; height: 34px; }
-  .head-cta { font-size: 0.78rem; padding: 8px 14px; min-height: 36px; }
-}
-
-/* ---------- MOBILE BOTTOM BAR ---------- */
-.mobile-bar {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 110;
-  display: none; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
-  background: var(--obsidian); transform: translateY(110%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  padding-bottom: env(safe-area-inset-bottom);
-  box-shadow: 0 -8px 28px rgba(0,0,0,0.5);
-}
-.mobile-bar.show { transform: translateY(0); }
-.mobile-bar a {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  min-height: 52px; font-weight: 700; color: var(--white); font-size: 0.78rem;
-}
-.mobile-bar a svg { width: 16px; height: 16px; }
-.mobile-bar .m-music { background: var(--obsidian-2); }
-.mobile-bar .m-shop { background: var(--obsidian-2); }
-.mobile-bar .m-join { background: var(--gold-grad); color: #151004; }
-@media (max-width: 860px) { .mobile-bar { display: grid; } }
-
-/* ---------- CHAPTER READOUT ---------- */
-.chapter-readout {
-  position: fixed; left: clamp(16px, 3vw, 36px); bottom: 40px; z-index: 55;
-  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
-  color: var(--muted); display: flex; align-items: center; gap: 12px;
-  pointer-events: none; transition: opacity 0.35s;
-}
-.chapter-readout .ch-label { color: var(--gold); min-width: 90px; font-weight: 500; }
-.chapter-readout .ch-bar { width: 60px; height: 1.5px; background: rgba(200,164,78,0.2); overflow: hidden; border-radius: 2px; }
-.chapter-readout .ch-bar i { display: block; height: 100%; width: 0; background: var(--gold); transition: width 0.3s linear; }
-.chapter-readout.hide { opacity: 0; }
-@media (max-width: 700px) { .chapter-readout { display: none; } }
-
-/* ==================== SCENE 1 — HERO ==================== */
-.scene-hero {
-  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  overflow: hidden; background: radial-gradient(140% 90% at 50% 0%, #1a1815 0%, #0d0c0a 40%, var(--obsidian) 68%);
-}
-.scene-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(200,164,78,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 70% 80%, rgba(155,27,26,0.05) 0%, transparent 50%);
-  pointer-events: none; z-index: 1;
-}
-.scene-hero::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 40%; background: linear-gradient(0deg, var(--obsidian), transparent);
-  pointer-events: none; z-index: 2;
-}
-
-/* Ambient grid */
-.hero-grid {
-  position: absolute; inset: 0; z-index: 0; opacity: 0.06;
-  background-image:
-    linear-gradient(rgba(200,164,78,0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,164,78,0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 70%);
-}
-
-/* Floating particles */
-.hero-particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-
-.hero-inner { position: relative; text-align: center; z-index: 3; padding: 0 5vw; max-width: 900px; }
-.hero-eyebrow { justify-content: center; margin-bottom: 24px; }
-
-.wordmark {
-  font-family: var(--display); font-weight: 400; font-size: clamp(72px, 15vw, 210px);
-  line-height: 0.84; letter-spacing: -0.01em; text-transform: uppercase;
-  background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 12px 40px rgba(200,164,78,0.22));
-}
-.wordmark .l3 { display: inline-block; }
-
-.tagline-stack { margin-top: 16px; }
-.tagline-main {
-  font-family: var(--display); font-weight: 400; font-size: clamp(22px, 3.5vw, 44px);
-  letter-spacing: 0.04em; color: var(--white); line-height: 1.1;
-}
-.tagline-sub {
-  font-family: var(--mono); font-size: clamp(11px, 1.3vw, 14px); letter-spacing: 0.4em;
-  color: var(--muted); margin-top: 10px; text-transform: uppercase;
-}
-
-.cta-cluster { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 40px; }
-
-.hero-scroll-hint {
-  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 3;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-}
-.hero-scroll-hint span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; color: var(--muted); text-transform: uppercase; }
-.hero-scroll-hint .line { width: 1px; height: 40px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
-@keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(0.6); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); transform-origin: top; } }
-
-/* ==================== SCENE 2 — THE STORY ==================== */
-.scene-story {
-  position: relative; padding: clamp(100px, 14vw, 160px) 0;
-  background: var(--obsidian-2);
-  overflow: hidden;
-}
-.scene-story::before {
-  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 1px; height: 80px; background: linear-gradient(180deg, transparent, var(--gold), transparent);
-  opacity: 0.5;
-}
-.story-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 8vw, 80px);
-  align-items: center;
-}
-.story-visual {
-  position: relative;
-  aspect-ratio: 3/4;
-  background: radial-gradient(ellipse at 50% 50%, rgba(200,164,78,0.08) 0%, transparent 60%);
-  border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.story-visual-inner {
-  text-align: center; padding: 40px;
-}
-.story-visual-inner .quote-mark { font-family: var(--display); font-size: 120px; line-height: 0.5; color: var(--gold); opacity: 0.3; }
-.story-visual-inner .quote-text {
-  font-family: var(--display); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.08;
-  color: var(--white); margin-top: 10px;
-}
-.story-visual-inner .quote-attrib { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--gold); margin-top: 16px; }
-.story-content h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: 8px; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.story-content .story-lead {
-  font-size: clamp(16px, 1.8vw, 20px); font-weight: 600; color: var(--white);
-  line-height: 1.5; margin-bottom: 24px;
-}
-.story-content p {
-  color: var(--warm-gray); line-height: 1.75; margin-bottom: 16px;
-  font-size: clamp(14px, 1.4vw, 16px);
-}
-.story-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
-.stat-item { text-align: center; padding: 20px 12px; background: rgba(200,164,78,0.04); border: 1px solid var(--line); border-radius: 3px; }
-.stat-num { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
-.stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--muted); margin-top: 6px; text-transform: uppercase; }
-
-@media (max-width: 768px) {
-  .story-grid { grid-template-columns: 1fr; }
-  .story-visual { aspect-ratio: 1/1; }
-}
-
-/* ==================== SCENE 3 — CHOOSE YOUR PATH ==================== */
-.scene-paths {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian);
-}
-.section-header { text-align: center; margin-bottom: clamp(40px, 6vw, 64px); }
-.section-header h2 { font-size: clamp(40px, 7vw, 80px); background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.section-header p { color: var(--warm-gray); font-size: clamp(14px, 1.5vw, 17px); max-width: 520px; margin: 12px auto 0; }
-
-.path-cards {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-}
-.path-card {
-  position: relative; background: var(--obsidian-2); border: 1px solid var(--line);
-  border-radius: 4px; padding: clamp(28px, 3.5vw, 40px) clamp(18px, 2.5vw, 28px);
-  cursor: pointer; transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
-  overflow: hidden; text-align: center;
-}
-.path-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(200,164,78,0.06) 0%, transparent 70%);
-  opacity: 0; transition: opacity 0.35s;
-}
-.path-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-.path-card:hover::before { opacity: 1; }
-.path-icon { width: 56px; height: 56px; margin: 0 auto 16px; }
-.path-card h3 { font-size: clamp(20px, 2.5vw, 28px); color: var(--white); margin-bottom: 6px; }
-.path-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
-.path-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.15em; transition: gap 0.3s; }
-.path-card:hover .path-arrow { gap: 10px; }
-
-@media (max-width: 860px) {
-  .path-cards { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .path-cards { grid-template-columns: 1fr; }
-}
-
-/* ==================== SCENE 4 — MUSIC ==================== */
-.scene-music {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian-2);
-  overflow: hidden;
-}
-.scene-music::before {
-  content: ''; position: absolute; right: -200px; top: -100px;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(155,27,26,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-.music-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 50px); align-items: start; }
-.album-art {
-  position: relative; aspect-ratio: 1;
-  background: var(--obsidian-3); border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.album-art img { width: 100%; height: 100%; object-fit: cover; }
-.album-art-placeholder {
-  text-align: center; color: var(--muted);
-}
-.album-art-placeholder svg { width: 80px; height: 80px; opacity: 0.3; margin: 0 auto 12px; }
-.track-list { list-style: none; }
-.track-item {
-  display: flex; align-items: center; gap: 14px; padding: 14px 0;
-  border-bottom: 1px solid var(--line); transition: background 0.2s;
-}
-.track-item:hover { background: rgba(200,164,78,0.03); }
-.track-num { font-family: var(--mono); font-size: 12px; color: var(--gold); min-width: 24px; }
-.track-info { flex: 1; min-width: 0; }
-.track-title { font-weight: 600; color: var(--white); font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.track-feat { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.track-price { font-family: var(--mono); font-size: 13px; color: var(--gold); font-weight: 500; }
-.track-play { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--line-light); background: transparent; color: var(--gold); display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
-.track-play:hover { background: rgba(200,164,78,0.12); border-color: var(--gold); }
-
-@media (max-width: 768px) {
-  .music-layout { grid-template-columns: 1fr; }
-}
-
-/* ==================== SCENE 5 — RAWL O APPAREL ==================== */
-.scene-apparel {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian);
-}
-.apparel-showcase { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(30px, 5vw, 56px); align-items: center; }
-.apparel-hero-visual {
-  position: relative; aspect-ratio: 4/5;
-  background: radial-gradient(ellipse at 40% 50%, rgba(200,164,78,0.05) 0%, transparent 60%);
-  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.apparel-hero-visual img { width: 100%; height: 100%; object-fit: cover; }
-.apparel-info h2 { font-size: clamp(40px, 6vw, 72px); background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.apparel-info .brand-sub { font-family: var(--mono); font-size: 13px; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 16px; }
-.apparel-info p { color: var(--warm-gray); line-height: 1.7; margin-bottom: 24px; }
-.apparel-products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px; }
-.ap-product {
-  background: var(--obsidian-2); border: 1px solid var(--line); padding: 14px;
-  border-radius: 3px; font-size: 13px; color: var(--white); font-weight: 500;
-  display: flex; align-items: center; gap: 10px;
-}
-.ap-color-dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
-@media (max-width: 768px) {
-  .apparel-showcase { grid-template-columns: 1fr; }
-  .apparel-hero-visual { aspect-ratio: 3/4; }
-}
-
-/* ==================== SCENE 6 — THE BOOK ==================== */
-.scene-book {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian-2);
-}
-.book-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(30px, 6vw, 64px); align-items: center; }
-.book-cover {
-  position: relative; aspect-ratio: 2/3; max-width: 340px; margin: 0 auto;
-  background: linear-gradient(145deg, #1a1a15 0%, #0d0c0a 50%, #1a1210 100%);
-  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
-  box-shadow: 20px 20px 40px rgba(0,0,0,0.5);
-}
-.book-cover-inner { text-align: center; padding: 30px; }
-.book-cover-inner .bc-author { font-family: var(--mono); font-size: 10px; letter-spacing: 0.35em; color: var(--gold); }
-.book-cover-inner .bc-title { font-family: var(--display); font-size: clamp(28px, 3vw, 40px); color: var(--white); margin: 20px 0; line-height: 1.06; }
-.book-cover-inner .bc-line { width: 40px; height: 1px; background: var(--gold); margin: 0 auto; }
-.book-info h2 { font-size: clamp(36px, 5vw, 60px); background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.book-info .book-blurb { color: var(--warm-gray); line-height: 1.75; margin: 16px 0 24px; font-size: clamp(14px, 1.4vw, 16px); }
-.book-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
-.book-meta-item { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.1em; }
-@media (max-width: 768px) {
-  .book-layout { grid-template-columns: 1fr; }
-  .book-cover { max-width: 240px; }
-}
-
-/* ==================== SCENE 7 — PODCAST & MEDIA ==================== */
-.scene-media {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian);
-}
-.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 40px); }
-.media-card {
-  background: var(--obsidian-2); border: 1px solid var(--line); border-radius: 4px;
-  padding: clamp(24px, 3vw, 36px); transition: border-color 0.3s;
-}
-.media-card:hover { border-color: var(--gold); }
-.media-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.media-card-icon { width: 44px; height: 44px; }
-.media-card h3 { font-size: clamp(22px, 2.5vw, 30px); color: var(--white); }
-.media-card p { color: var(--warm-gray); font-size: 14px; margin-bottom: 16px; }
-.media-embed {
-  aspect-ratio: 16/9; background: var(--obsidian-3); border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-family: var(--mono); font-size: 12px;
-}
-.social-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-.social-pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 16px; border: 1px solid var(--line-light); border-radius: 60px;
-  font-size: 13px; font-weight: 500; color: var(--warm-gray);
-  transition: border-color 0.25s, color 0.25s, background 0.25s;
-}
-.social-pill:hover { border-color: var(--gold); color: var(--gold-bright); background: rgba(200,164,78,0.06); }
-@media (max-width: 768px) {
-  .media-grid { grid-template-columns: 1fr; }
-}
-
-/* ==================== SCENE 8 — COMMUNITY / IMPACT ==================== */
-.scene-community {
-  position: relative; padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--obsidian-2);
-}
-.community-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
-.bento-card {
-  background: var(--obsidian-3); border: 1px solid var(--line); border-radius: 4px;
-  padding: clamp(20px, 2.5vw, 32px); transition: border-color 0.3s;
-}
-.bento-card:hover { border-color: var(--gold); }
-.bento-card.wide { grid-column: span 2; }
-.bento-card.tall { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
-.bento-card h3 { font-size: clamp(20px, 2.2vw, 28px); color: var(--white); margin-bottom: 8px; }
-.bento-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
-.bento-icon { font-size: 28px; margin-bottom: 12px; }
-@media (max-width: 768px) {
-  .community-bento { grid-template-columns: 1fr 1fr; }
-  .bento-card.wide { grid-column: span 2; }
-  .bento-card.tall { grid-row: span 1; }
-}
-@media (max-width: 480px) {
-  .community-bento { grid-template-columns: 1fr; }
-  .bento-card.wide { grid-column: span 1; }
-}
-
-/* ==================== SCENE 9 — JOIN THE EVOLVEMENT (CTA) ==================== */
-.scene-join {
-  position: relative; padding: clamp(80px, 12vw, 140px) 0;
-  background: var(--obsidian);
-  text-align: center;
-  overflow: hidden;
-}
-.scene-join::before {
-  content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(200,164,78,0.05) 0%, transparent 60%);
-  pointer-events: none;
-}
-.join-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-.join-inner h2 { font-size: clamp(40px, 7vw, 72px); background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.join-inner p { color: var(--warm-gray); margin: 16px 0 36px; font-size: clamp(14px, 1.4vw, 16px); }
-
-/* GHL Form Slot */
-.ghl-form-slot {
-  background: var(--obsidian-2); border: 2px dashed var(--line-light); border-radius: 6px;
-  padding: 28px; margin-top: 20px; position: relative;
-}
-.ghl-form-slot::before {
-  content: '⬢ GHL EMBED SLOT — Replace with Go High Level form embed code';
-  font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.1em;
-  display: block; text-align: center; margin-bottom: 16px;
-}
-.ghl-demo-form { display: flex; flex-direction: column; gap: 12px; }
-.ghl-demo-row { display: flex; gap: 12px; }
-.ghl-input {
-  flex: 1; background: var(--obsidian-3); border: 1px solid var(--line);
-  padding: 14px 16px; border-radius: 3px; color: var(--white); font-family: var(--body); font-size: 14px;
-  transition: border-color 0.25s;
-}
-.ghl-input:focus { outline: none; border-color: var(--gold); }
-.ghl-input::placeholder { color: var(--muted); }
-@media (max-width: 480px) {
-  .ghl-demo-row { flex-direction: column; }
-}
-
-/* ==================== FOOTER ==================== */
-.site-foot {
-  padding: clamp(48px, 6vw, 72px) 0 40px;
-  background: var(--obsidian); border-top: 1px solid var(--line);
-}
-.foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
-.foot-brand .brand-mark-foot { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.foot-brand p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.foot-col h4 { font-family: var(--display); font-size: 18px; color: var(--white); margin-bottom: 16px; letter-spacing: 0.04em; }
-.foot-col a { display: block; font-size: 13px; color: var(--muted); padding: 6px 0; transition: color 0.2s; }
-.foot-col a:hover { color: var(--gold-bright); }
-.foot-bottom {
-  margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 12px; color: var(--muted); font-family: var(--mono);
-}
-@media (max-width: 768px) {
-  .foot-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 480px) {
-  .foot-grid { grid-template-columns: 1fr; }
-  .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
-}
-
-/* ---------- REDUCED MOTION ---------- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .hero-scroll-hint { display: none; }
-}
-</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<!-- ========== HEADER ========== -->
+<!-- HEADER -->
 <header class="site-head" id="site-head">
-  <a href="#" class="brand-mark">
-    <svg class="crown-icon" viewBox="0 0 48 48" fill="none">
-      <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0D68A"/><stop offset="50%" stop-color="#C8A44E"/><stop offset="100%" stop-color="#8B6918"/></linearGradient></defs>
-      <path d="M8 36 L24 8 L40 36Z" fill="none" stroke="url(#hg)" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="19" y="34" width="10" height="4" rx="1" fill="url(#hg)" opacity="0.6"/>
-      <circle cx="14" cy="28" r="2.5" fill="url(#hg)" opacity="0.5"/>
-      <circle cx="24" cy="20" r="2.5" fill="url(#hg)" opacity="0.7"/>
-      <circle cx="34" cy="28" r="2.5" fill="url(#hg)" opacity="0.5"/>
-    </svg>
-    <span class="brand-name">L3GENDARY</span>
-  </a>
-  <nav class="nav-links">
-    <a href="#story" class="nav-link">Story</a>
-    <a href="#paths" class="nav-link">Explore</a>
-    <a href="#music" class="nav-link">Music</a>
-    <a href="#apparel" class="nav-link">Apparel</a>
-    <a href="#book" class="nav-link">Book</a>
-    <a href="#join" class="head-cta btn btn-gold">Join Now</a>
+  <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
+  <nav class="head-nav">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="shop.html" class="nav-link">Shop</a>
+    <a href="shop.html?category=music" class="nav-link">Music</a>
+    <a href="shop.html?category=apparel" class="nav-link">Apparel</a>
+    <a href="shop.html?category=book" class="nav-link">Book</a>
   </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="head-cart-btn" data-cart-toggle>
+      🛒 <span id="cart-count">0</span>
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
-<!-- ========== MOBILE BAR ========== -->
-<nav class="mobile-bar" id="mobile-bar">
-  <a href="#music" class="m-music">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="17" r="3"/><circle cx="17" cy="9" r="3"/><line x1="8" y1="17" x2="18" y2="9"/></svg>
-    Music
-  </a>
-  <a href="#apparel" class="m-shop">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-    Shop
-  </a>
-  <a href="#join" class="m-join">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-    Join
-  </a>
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Home</a>
+  <a href="shop.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Shop All</a>
+  <a href="shop.html?category=music" onclick="document.getElementById('mobile-nav').classList.remove('open')">Music</a>
+  <a href="shop.html?category=apparel" onclick="document.getElementById('mobile-nav').classList.remove('open')">Apparel</a>
+  <a href="shop.html?category=book" onclick="document.getElementById('mobile-nav').classList.remove('open')">Book</a>
+  <a href="cart.html" onclick="document.getElementById('mobile-nav').classList.remove('open')">Cart</a>
 </nav>
 
-<!-- ========== CHAPTER READOUT ========== -->
-<div class="chapter-readout hide" id="chapter-readout">
-  <span class="ch-label">CH 01 / 09</span>
-  <span class="ch-bar"><i></i></span>
-</div>
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-head">
+    Your Cart (<span id="drawer-count">0</span>)
+    <button class="cart-drawer-close" id="cart-drawer-close">&times;</button>
+  </div>
+  <div class="cart-drawer-inner" id="mini-cart"></div>
+  <div class="cart-drawer-foot"></div>
+</aside>
 
-<!-- ================================================================ -->
-<!-- SCENE 1 — HERO -->
-<!-- ================================================================ -->
-<section class="scene-hero" id="hero">
-  <div class="hero-grid"></div>
-  <canvas class="hero-particles" id="hero-particles"></canvas>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-bg"></div>
+  <canvas class="particles" id="hero-particles"></canvas>
   <div class="hero-inner">
-    <div class="hero-eyebrow eyebrow">THE MOVEMENT BEGINS</div>
-    <h1 class="wordmark">L3GENDARY</h1>
-    <div class="tagline-stack">
-      <div class="tagline-main">FROM THE STREETS<br>TO LEGENDARY</div>
-      <div class="tagline-sub">Music · Apparel · Books · Community</div>
-    </div>
-    <div class="cta-cluster">
-      <a href="#paths" class="btn btn-gold">Choose Your Path</a>
-      <a href="#story" class="btn btn-ghost">Hear the Story</a>
-      <a href="#join" class="btn btn-crimson">Join the Evolvement</a>
+    <div class="hero-eyebrow">THE MOVEMENT</div>
+    <h1 class="hero-wordmark">L3GENDARY</h1>
+    <div class="hero-tagline">FROM THE STREETS<br>TO LEGENDARY</div>
+    <p class="hero-sub">Music that tells the truth. Apparel that reps the movement. A book that changes lives. Welcome to L3GENDARY.</p>
+    <div class="hero-ctas">
+      <a href="shop.html" class="btn btn-accent btn-lg">Shop the Movement →</a>
+      <a href="#story" class="btn btn-ghost btn-lg">Hear the Story</a>
+      <a href="#newsletter" class="btn btn-ghost btn-lg">Join the Evolvement</a>
     </div>
   </div>
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="line"></div>
-  </div>
+  <div class="hero-scroll"><span>SCROLL</span><div class="hero-scroll-line"></div></div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 2 — THE STORY -->
-<!-- ================================================================ -->
-<section class="scene-story" id="story">
+<!-- ═══════════════ STORY ═══════════════ -->
+<section class="section-pad" id="story">
   <div class="wrap">
     <div class="story-grid">
-      <div class="story-visual">
+      <div class="story-visual fade-up">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(249,115,22,0.1),transparent 60%)"></div>
         <div class="story-visual-inner">
-          <div class="quote-mark">&ldquo;</div>
-          <div class="quote-text">I used to move weight on the streets. Now I move people toward their purpose.</div>
-          <div class="quote-attrib">— TAVIUS LEVERETT</div>
+          <div style="font-family:var(--font-display);font-size:100px;line-height:0.5;color:var(--apparel);opacity:0.3;margin-bottom:16px">&ldquo;</div>
+          <div class="quote">I used to move weight on the streets. Now I move people toward their purpose.</div>
+          <div class="attrib">— TAVIUS LEVERETT</div>
         </div>
       </div>
-      <div class="story-content">
-        <div class="eyebrow">CHAPTER 01</div>
-        <h2>The Origin</h2>
-        <div class="story-lead">Every legend starts somewhere. This one started in the streets of Central Florida — and almost ended there too.</div>
-        <p>Tavius Leverett knows both sides of the line. He spent years in the street economy — moving product, navigating the code, watching friends disappear into the system or the ground. He wrote music about it. He wrote a book about it. And then he made a decision that changed everything: <strong>use those same skills to build something that gives back.</strong></p>
-        <p>L3GENDARY isn't a brand that pretends the past didn't happen. It's a brand built on the truth that <strong>your past is your platform</strong> — and what you do next is what makes you legendary.</p>
-        <div class="story-stats">
-          <div class="stat-item"><div class="stat-num">17+</div><div class="stat-label">Music Tracks</div></div>
-          <div class="stat-item"><div class="stat-num">11+</div><div class="stat-label">Apparel Pieces</div></div>
-          <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Published Book</div></div>
+      <div class="story-text fade-up">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--apparel);margin-bottom:12px">THE ORIGIN</div>
+        <h2 style="background:linear-gradient(135deg,var(--text),var(--text-muted));-webkit-background-clip:text;background-clip:text;color:transparent">The Story</h2>
+        <div class="lead">Every legend starts somewhere. This one started in the streets of Central Florida — and almost ended there.</div>
+        <p>Tavius Leverett spent years in the street economy — moving product, navigating the code, watching friends disappear. He wrote music about it. He wrote a book about it. Then he made the decision that changed everything: <strong>use those same skills to build something that gives back.</strong></p>
+        <p>L3GENDARY isn't a brand that hides the past. It's built on the truth that <strong>your past is your platform</strong> — and what you do next is what makes you legendary.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="shop.html?category=music" class="btn btn-music">🎵 Explore Music</a>
+          <a href="shop.html?category=apparel" class="btn btn-apparel">👕 Shop Apparel</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 3 — CHOOSE YOUR PATH -->
-<!-- ================================================================ -->
-<section class="scene-paths" id="paths">
+<!-- ═══════════════ CATEGORIES ═══════════════ -->
+<section class="section-pad" style="background:var(--bg-deep)" id="explore">
   <div class="wrap">
-    <div class="section-header">
-      <div class="eyebrow" style="justify-content:center">WHERE YOU HEADED?</div>
+    <div class="section-head fade-up">
       <h2>Choose Your Path</h2>
-      <p>Music moves the soul. Apparel reps the brand. The book tells the truth. Pick where you want to start — or take all three.</p>
+      <p>Music moves the soul. Apparel reps the brand. The book tells the truth. Pick your entry point.</p>
     </div>
-    <div class="path-cards">
-      <a href="#music" class="path-card">
-        <div class="path-icon">
-          <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" stroke="#C8A44E" stroke-width="1.5" opacity="0.4"/><circle cx="28" cy="28" r="18" fill="none" stroke="#C8A44E" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/><circle cx="20" cy="22" r="5" fill="#C8A44E" opacity="0.8"/><circle cx="38" cy="22" r="2" fill="#C8A44E" opacity="0.5"/><line x1="26" y1="20" x2="36" y2="20" stroke="#C8A44E" stroke-width="1.5" opacity="0.5"/></svg>
-        </div>
+    <div class="cat-cards">
+      <a href="shop.html?category=music" class="cat-card music fade-up">
+        <div class="cat-icon">🎵</div>
         <h3>Music</h3>
-        <p>17 tracks of raw storytelling from the streets to redemption.</p>
-        <span class="path-arrow">LISTEN NOW →</span>
+        <p>17 tracks of raw storytelling — from the streets to redemption. $0.99 each or $4.99 for the full catalog.</p>
+        <div class="cat-arrow" style="color:var(--music)">LISTEN NOW →</div>
       </a>
-      <a href="#apparel" class="path-card">
-        <div class="path-icon">
-          <svg viewBox="0 0 56 56" fill="none"><rect x="14" y="16" width="28" height="28" rx="3" stroke="#C8A44E" stroke-width="1.5" fill="none"/><line x1="14" y1="26" x2="42" y2="26" stroke="#C8A44E" stroke-width="1" opacity="0.4"/><circle cx="28" cy="22" r="2" fill="#C8A44E" opacity="0.6"/></svg>
-        </div>
+      <a href="shop.html?category=apparel" class="cat-card apparel fade-up">
+        <div class="cat-icon">👕</div>
         <h3>Rawlo Apparel</h3>
-        <p>Streetwear that reps the movement. Hoodies, hats, tees — wear the brand.</p>
-        <span class="path-arrow">SHOP THE LOOK →</span>
+        <p>Hoodies, hats, tees — streetwear with a story. Every piece reps the movement.</p>
+        <div class="cat-arrow" style="color:var(--apparel)">SHOP THE LOOK →</div>
       </a>
-      <a href="#book" class="path-card">
-        <div class="path-icon">
-          <svg viewBox="0 0 56 56" fill="none"><rect x="10" y="12" width="26" height="36" rx="2" stroke="#C8A44E" stroke-width="1.5" fill="none"/><line x1="17" y1="22" x2="30" y2="22" stroke="#C8A44E" stroke-width="1" opacity="0.5"/><line x1="17" y1="28" x2="28" y2="28" stroke="#C8A44E" stroke-width="1" opacity="0.4"/><line x1="17" y1="34" x2="25" y2="34" stroke="#C8A44E" stroke-width="1" opacity="0.3"/><rect x="30" y="14" width="18" height="32" rx="1.5" stroke="#C8A44E" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
-        </div>
+      <a href="product.html?id=29" class="cat-card book fade-up">
+        <div class="cat-icon">📖</div>
         <h3>The Book</h3>
-        <p>"A Good Man Who Makes Bad Decisions" — the story behind the movement.</p>
-        <span class="path-arrow">READ MORE →</span>
+        <p>"A Good Man Who Makes Bad Decisions" — the raw memoir behind the movement.</p>
+        <div class="cat-arrow" style="color:var(--book)">READ MORE →</div>
       </a>
-      <a href="#media" class="path-card">
-        <div class="path-icon">
-          <svg viewBox="0 0 56 56" fill="none"><rect x="8" y="12" width="40" height="32" rx="6" stroke="#C8A44E" stroke-width="1.5" fill="none"/><polygon points="24,18 40,28 24,38" fill="#C8A44E" opacity="0.7"/></svg>
-        </div>
-        <h3>Podcast & Media</h3>
-        <p>Watch, listen, and follow the journey on YouTube, podcasts, and socials.</p>
-        <span class="path-arrow">TUNE IN →</span>
+      <a href="#newsletter" class="cat-card community fade-up">
+        <div class="cat-icon">🤝</div>
+        <h3>Community</h3>
+        <p>Impact of FL, speaking, events. Real work on the ground. Be part of something bigger.</p>
+        <div class="cat-arrow" style="color:var(--community)">GET INVOLVED →</div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 4 — MUSIC -->
-<!-- ================================================================ -->
-<section class="scene-music" id="music">
+<!-- ═══════════════ FEATURED PRODUCTS ═══════════════ -->
+<section class="section-pad" id="featured">
   <div class="wrap">
-    <div class="section-header">
-      <div class="eyebrow" style="justify-content:center">CHAPTER 02</div>
-      <h2>L3gendary Music</h2>
-      <p>Every track is a chapter. From the streets to the studio — this is the soundtrack of the evolvement.</p>
+    <div class="section-head fade-up">
+      <h2>What's Hot Right Now</h2>
+      <p>Hand-picked from the catalog. The tracks, fits, and reads everyone's talking about.</p>
     </div>
-    <div class="music-layout">
-      <div class="album-art">
-        <img src="https://www.ldl3gendary.com/wp-content/uploads/2024/05/legendary-master-300x300.jpg"
-             alt="L3gendary Master Album Art"
-             loading="lazy"
-             onerror="this.style.display='none';this.parentElement.querySelector('.album-art-placeholder').style.display='block';">
-        <div class="album-art-placeholder" style="display:none">
-          <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#C8A44E" stroke-width="1.5"/><circle cx="40" cy="40" r="14" fill="#C8A44E" opacity="0.6"/><circle cx="40" cy="40" r="4" fill="#08080A"/></svg>
-          <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em">L3GENDARY MASTER</div>
-        </div>
-      </div>
-      <div>
-        <h3 style="font-family:var(--display);font-size:clamp(22px,2.5vw,32px);color:var(--white);margin-bottom:20px">FEATURED TRACKS</h3>
-        <ul class="track-list">
-          <li class="track-item"><span class="track-num">01</span><span class="track-info"><span class="track-title">914</span><span class="track-feat">feat. CL</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">02</span><span class="track-info"><span class="track-title">Here I Am</span><span class="track-feat">feat. Dime CL</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">03</span><span class="track-info"><span class="track-title">Take Me Down</span><span class="track-feat">feat. Jamie Ray</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">04</span><span class="track-info"><span class="track-title">Let's Ride</span><span class="track-feat">Audiotrack</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">05</span><span class="track-info"><span class="track-title">Soon Be Out</span><span class="track-feat">Audiotrack</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">06</span><span class="track-info"><span class="track-title">Where I'm From</span><span class="track-feat">Audiotrack</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-          <li class="track-item"><span class="track-num">07</span><span class="track-info"><span class="track-title">Moving Weight</span><span class="track-feat">Audiotrack</span></span><span class="track-price">$0.99</span><button class="track-play" aria-label="Play">▶</button></li>
-        </ul>
-        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://www.ldl3gendary.com/product-category/l3gendary-music/" target="_blank" rel="noopener" class="btn btn-gold">All 17 Tracks</a>
-          <a href="https://www.ldl3gendary.com/product/special-offer-all-songs-now-4-99/" target="_blank" rel="noopener" class="btn btn-crimson">Bundle Deal — All Songs $4.99</a>
-        </div>
-      </div>
+    <div class="feat-grid" id="featured-grid"></div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="shop.html" class="btn btn-accent btn-lg">View All Products →</a>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 5 — RAWL O APPAREL -->
-<!-- ================================================================ -->
-<section class="scene-apparel" id="apparel">
+<!-- ═══════════════ STUDIO ═══════════════ -->
+<section class="section-pad" style="background:var(--bg-deep)">
   <div class="wrap">
-    <div class="apparel-showcase">
-      <div class="apparel-hero-visual">
-        <img src="https://www.ldl3gendary.com/wp-content/uploads/2024/11/IMG_0323-300x300.webp"
-             alt="Rawlo Apparel Classic Hoodie"
-             loading="lazy"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(145deg, #1a1a15 0%, #0d0c0a 60%, #1a1210 100%)';this.parentElement.innerHTML+='<div style=text-align:center;color:var(--gold);font-family:var(--display);font-size:32px>RAWL&#216;</div>';">
-      </div>
-      <div class="apparel-info">
-        <div class="eyebrow">CHAPTER 03</div>
-        <h2>Rawlo Apparel</h2>
-        <div class="brand-sub">BY L3GENDARY</div>
-        <p>Every piece tells a story. Rawlo Apparel is streetwear with soul — designed by Tavius himself, each piece reps the movement from the streets to legendary. Wear it, and you're part of the story.</p>
-        <div class="apparel-products">
-          <div class="ap-product"><span class="ap-color-dot" style="background:#111"></span> Classic Hoodie — $60</div>
-          <div class="ap-product"><span class="ap-color-dot" style="background:#C41E3A"></span> Red Jacket — $60</div>
-          <div class="ap-product"><span class="ap-color-dot" style="background:#FFB6C1"></span> Pink Hat — $29.99</div>
-          <div class="ap-product"><span class="ap-color-dot" style="background:#87CEEB"></span> Blue Hat — $29.99</div>
-          <div class="ap-product"><span class="ap-color-dot" style="background:#1a1a1a"></span> Logo Tee — $34.99</div>
-          <div class="ap-product"><span class="ap-color-dot" style="background:#F5F5DC"></span> Beige Tee — $34.99</div>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://www.ldl3gendary.com/product-category/rawlo-apparel/" target="_blank" rel="noopener" class="btn btn-gold">Shop Rawlo Apparel</a>
-          <a href="#join" class="btn btn-ghost">Get Drop Alerts</a>
-        </div>
-      </div>
+    <div class="section-head fade-up">
+      <h2>The Studio</h2>
+      <p>Watch, listen, and follow the journey across every platform.</p>
+    </div>
+    <div class="studio-grid">
+      <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener" class="studio-card music-bg fade-up">
+        <div class="studio-card-content"><h3>▶ YouTube</h3><p>@863l3gendary — Music videos, behind the scenes, community events</p></div>
+      </a>
+      <a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener" class="studio-card apparel-bg fade-up">
+        <div class="studio-card-content"><h3>📘 Facebook</h3><p>Tavius Leverett — Daily posts, lives, and community updates</p></div>
+      </a>
+      <a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener" class="studio-card book-bg fade-up">
+        <div class="studio-card-content"><h3>📷 Instagram</h3><p>@863l3gendary — Fit pics, music clips, and the visual side of the movement</p></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 6 — THE BOOK -->
-<!-- ================================================================ -->
-<section class="scene-book" id="book">
+<!-- ═══════════════ NEWSLETTER ═══════════════ -->
+<section class="newsletter" id="newsletter">
   <div class="wrap">
-    <div class="book-layout">
-      <div class="book-cover">
-        <div class="book-cover-inner">
-          <div class="bc-author">TAVIUS LEVERETT</div>
-          <div class="bc-title">A GOOD MAN<br>WHO MAKES<br>BAD DECISIONS</div>
-          <div class="bc-line"></div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.2em;margin-top:12px">A MEMOIR</div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="eyebrow">CHAPTER 04</div>
-        <h2>The Book</h2>
-        <div class="book-blurb">
-          <p>What happens when a man who's seen the worst of the streets decides to build something better? <strong>"A Good Man Who Makes Bad Decisions"</strong> is Tavius Leverett's raw, unfiltered account of life on both sides of the line — and the moment he chose to stop surviving and start building.</p>
-          <p style="margin-top:12px">It's not a redemption story. It's a <strong>transformation manual</strong> — for anyone who's ever felt trapped by their circumstances and wondered if there's another way.</p>
-        </div>
-        <div class="book-meta">
-          <div class="book-meta-item">📄 PDF Format</div>
-          <div class="book-meta-item">💰 $8.99</div>
-          <div class="book-meta-item">📖 1st Edition</div>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://www.ldl3gendary.com/product/a-good-man-who-makes-bad-decisions/" target="_blank" rel="noopener" class="btn btn-gold">Buy the Book — $8.99</a>
-          <a href="#join" class="btn btn-ghost">Get Free Excerpt</a>
-        </div>
-      </div>
+    <div class="newsletter-inner fade-up">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--music);margin-bottom:12px">THE EVOLVEMENT</div>
+      <h2>Join the Movement</h2>
+      <p>Drop your email for exclusive drops, event invites, new music alerts, and the free "From the Streets to Legendary" starter guide.</p>
+      <!-- GHL FORM SLOT — Replace with Go High Level embed -->
+      <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Welcome to the evolvement! Check your email.');this.reset()">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-music">Join →</button>
+      </form>
+      <p style="font-size:11px;color:var(--text-dim);margin-top:12px;font-family:var(--font-mono)">⬢ GHL-ready — swap with your Go High Level form embed</p>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SCENE 7 — PODCAST & MEDIA -->
-<!-- ================================================================ -->
-<section class="scene-media" id="media">
-  <div class="wrap">
-    <div class="section-header">
-      <div class="eyebrow" style="justify-content:center">CHAPTER 05</div>
-      <h2>Podcast & Media</h2>
-      <p>The movement doesn't stop. Catch Tavius on YouTube, the podcast, and across social media.</p>
-    </div>
-    <div class="media-grid">
-      <div class="media-card">
-        <div class="media-card-header">
-          <div class="media-card-icon">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#C41E3A" opacity="0.3"/><polygon points="18,14 34,22 18,30" fill="#C41E3A"/></svg>
-          </div>
-          <div><h3 style="margin:0">YouTube</h3><span style="font-size:11px;color:var(--muted);font-family:var(--mono)">@863l3gendary</span></div>
-        </div>
-        <p>Music videos, behind-the-scenes, community events, and the raw, unfiltered journey.</p>
-        <div class="media-embed">
-          <!-- YOUTUBE EMBED SLOT — Replace with actual YouTube embed -->
-          ⬢ YouTube Embed — <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">youtube.com/@863l3gendary</a>
-        </div>
-      </div>
-      <div class="media-card">
-        <div class="media-card-header">
-          <div class="media-card-icon">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="8" fill="#C8A44E" opacity="0.2"/><rect x="12" y="14" width="20" height="16" rx="2" fill="#C8A44E" opacity="0.5"/><circle cx="27" cy="22" r="4" fill="#08080A"/></svg>
-          </div>
-          <div><h3 style="margin:0">The Podcast</h3><span style="font-size:11px;color:var(--muted);font-family:var(--mono)">COMING SOON</span></div>
-        </div>
-        <p>Conversations with community leaders, entrepreneurs, and people transforming their lives — hosted by Tavius.</p>
-        <div class="media-embed">
-          ⬢ Podcast Embed — Available on all major platforms soon
-        </div>
-      </div>
-    </div>
-    <div class="social-pills" style="margin-top:28px;justify-content:center">
-      <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener" class="social-pill">▶ YouTube</a>
-      <a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener" class="social-pill">📘 Facebook</a>
-      <a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener" class="social-pill">📷 Instagram</a>
-      <a href="https://www.tiktok.com/@863l3gendary" target="_blank" rel="noopener" class="social-pill">🎵 TikTok</a>
-      <a href="https://x.com/863l3gendary" target="_blank" rel="noopener" class="social-pill">𝕏 Twitter</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SCENE 8 — COMMUNITY / IMPACT -->
-<!-- ================================================================ -->
-<section class="scene-community" id="community">
-  <div class="wrap">
-    <div class="section-header">
-      <div class="eyebrow" style="justify-content:center">CHAPTER 06</div>
-      <h2>Community & Impact</h2>
-      <p>L3GENDARY isn't just a brand — it's a movement. Here's how we're putting the work in on the ground.</p>
-    </div>
-    <div class="community-bento">
-      <div class="bento-card wide">
-        <div class="bento-icon">🤝</div>
-        <h3>Impact of FL</h3>
-        <p>Community outreach initiative focused on empowerment, mentorship, and creating pathways for people transitioning out of the street economy into legitimate business ownership. Workshops, speaking engagements, and one-on-one mentorship.</p>
-      </div>
-      <div class="bento-card">
-        <div class="bento-icon">🎤</div>
-        <h3>Speaking</h3>
-        <p>Tavius speaks at schools, community centers, and events — sharing his story and the blueprint for transformation.</p>
-      </div>
-      <div class="bento-card">
-        <div class="bento-icon">🏆</div>
-        <h3>Events</h3>
-        <p>Community cookouts, back-to-school drives, holiday givebacks, and pop-up shops. Real impact, on the ground.</p>
-      </div>
-      <div class="bento-card wide">
-        <div class="bento-icon">🚀</div>
-        <h3>The Evolvement Network</h3>
-        <p>A growing network of individuals who've turned their lives around and are now building businesses, creating art, and giving back. <strong>Your past is your platform. Your next move is legendary.</strong></p>
-        <a href="#join" class="btn btn-gold" style="margin-top:16px">Join the Network</a>
-      </div>
-      <div class="bento-card">
-        <div class="bento-icon">📚</div>
-        <h3>Resources</h3>
-        <p>Free guides, book excerpts, and tools for anyone looking to start their own transformation journey.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- SCENE 9 — JOIN THE EVOLVEMENT -->
-<!-- ================================================================ -->
-<section class="scene-join" id="join">
-  <div class="wrap">
-    <div class="join-inner">
-      <div class="eyebrow" style="justify-content:center">THE NEXT CHAPTER</div>
-      <h2>Join the Evolvement</h2>
-      <p>Drop your email to get exclusive drops, event invites, new music alerts, and the free "From the Streets to Legendary" starter guide. <strong>No spam. Just the movement.</strong></p>
-
-      <!-- GHL FORM SLOT -->
-      <div class="ghl-form-slot">
-        <!-- ⬢ REPLACE THIS ENTIRE DIV with your Go High Level form embed code ⬢ -->
-        <form class="ghl-demo-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-          <div class="ghl-demo-row">
-            <input type="text" name="first_name" class="ghl-input" placeholder="First Name" required>
-            <input type="email" name="email" class="ghl-input" placeholder="Email Address" required>
-          </div>
-          <div class="ghl-demo-row">
-            <select name="interest" class="ghl-input" style="appearance:none">
-              <option value="">What interests you most?</option>
-              <option value="music">🎵 Music</option>
-              <option value="apparel">👕 Rawlo Apparel</option>
-              <option value="book">📖 The Book</option>
-              <option value="community">🤝 Community Events</option>
-              <option value="all">🔥 All of It</option>
-            </select>
-            <input type="tel" name="phone" class="ghl-input" placeholder="Phone (optional — for SMS drops)">
-          </div>
-          <button type="submit" class="btn btn-gold" style="width:100%">Join the Evolvement →</button>
-        </form>
-        <!-- /GHL FORM SLOT -->
-      </div>
-      <p style="font-size:11px;color:var(--muted);margin-top:12px;font-family:var(--mono)">⬆ Replace this form with your Go High Level embed for automation + pipeline</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- FOOTER -->
-<!-- ================================================================ -->
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="brand-mark-foot">
-          <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-            <path d="M8 36 L24 8 L40 36Z" fill="none" stroke="url(#hgf)" stroke-width="2.5" stroke-linejoin="round"/>
-            <defs><linearGradient id="hgf" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0D68A"/><stop offset="100%" stop-color="#C8A44E"/></linearGradient></defs>
-          </svg>
-          <span style="font-family:var(--display);font-size:1.3rem;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent">L3GENDARY</span>
-        </div>
-        <p>Music. Apparel. Books. Community.<br>From the streets to legendary.<br>Central Florida, USA</p>
+      <div>
+        <div class="foot-brand"><span>L3GENDARY</span></div>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p>
       </div>
       <div class="foot-col">
-        <h4>Shop</h4>
-        <a href="https://www.ldl3gendary.com/product-category/l3gendary-music/" target="_blank" rel="noopener">Music</a>
-        <a href="https://www.ldl3gendary.com/product-category/rawlo-apparel/" target="_blank" rel="noopener">Rawlo Apparel</a>
-        <a href="https://www.ldl3gendary.com/product/a-good-man-who-makes-bad-decisions/" target="_blank" rel="noopener">The Book</a>
-        <a href="https://www.ldl3gendary.com/shop/" target="_blank" rel="noopener">All Products</a>
+        <h4>SHOP</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html?category=music">Music</a>
+        <a href="shop.html?category=apparel">Rawlo Apparel</a>
+        <a href="product.html?id=29">The Book</a>
       </div>
       <div class="foot-col">
-        <h4>Connect</h4>
+        <h4>CONNECT</h4>
         <a href="https://www.facebook.com/tavius.leverett" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@863l3gendary" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.instagram.com/863l3gendary" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@863l3gendary" target="_blank" rel="noopener">TikTok</a>
       </div>
       <div class="foot-col">
-        <h4>Contact</h4>
+        <h4>INFO</h4>
         <a href="mailto:Corporate@ldl3gendary.com">Corporate@ldl3gendary.com</a>
         <a href="tel:+18008132959">1-800-813-2959</a>
-        <a href="#join">Join Newsletter</a>
-        <a href="#community">Community Impact</a>
+        <a href="cart.html">Your Cart</a>
+        <a href="#newsletter">Join Newsletter</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2024 L3GENDARY PRODUCTS. All rights reserved.</span>
+      <span>© 2024 L3GENDARY PRODUCTS</span>
       <span>FROM THE STREETS TO LEGENDARY</span>
     </div>
   </div>
 </footer>
 
-<!-- ========== SCRIPTS ========== -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<div class="toast" id="toast"></div>
 
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
 <script>
-/* ============================================================
-   L3GENDARY — Interaction & Motion Engine
-   ============================================================ */
-
-// ---------- LENIS (smooth scroll) ----------
-const lenis = new Lenis({ duration: 1.4, easing: t => 1 - Math.pow(1 - t, 3), smoothWheel: true });
-function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
-
-// Fix Lenis + GSAP ScrollTrigger
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add(t => { lenis.raf(t * 1000); });
-gsap.ticker.lagSmoothing(0);
-
-// ---------- DEV CONTRACT ----------
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const jumpY = parseFloat(params.get('jump'));
-  if (!isNaN(jumpY) && jumpY > 0) {
-    lenis.scrollTo(jumpY, { immediate: true });
-  }
-  window.addEventListener('load', () => {
-    requestAnimationFrame(() => { requestAnimationFrame(() => { window.__ready = true; }); });
-  });
+/* ── Featured Products ── */
+(function(){
+  const featured = [17,18,29,8,19,24]; // Bundle, Hoodie, Book, Weekend, Red Jacket, Red Tee
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+  grid.innerHTML = featured.map(id => {
+    const p = L3_PRODUCTS.find(x => x.id === id);
+    if (!p) return '';
+    return `<a href="product.html?id=${p.id}" class="prod-card fade-up">
+      ${p.tag ? `<span class="prod-tag" style="background:${p.color};color:#fff">${p.tag}</span>` : ''}
+      <div class="prod-card-img">
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+        <div class="prod-card-placeholder" style="${p.image ? 'display:none' : ''};color:${p.color}">${p.category==='music'?'🎵':p.category==='apparel'?'👕':'📖'}</div>
+      </div>
+      <div class="prod-card-body">
+        <div class="prod-card-cat ${p.category}">${p.type}</div>
+        <h4>${p.name}</h4>
+        <div class="artist">${p.artist}</div>
+        <div class="prod-card-foot">
+          <span class="prod-price">${p.salePrice ? `<span class="orig">$${p.price.toFixed(2)}</span> $${p.salePrice.toFixed(2)}` : `$${p.price.toFixed(2)}`}</span>
+          <span class="btn btn-sm" style="background:${p.color};color:#fff">View →</span>
+        </div>
+      </div>
+    </a>`;
+  }).join('');
 })();
 
-// ---------- HEADER SCROLL STATE ----------
+/* ── Scroll Effects ── */
 const siteHead = document.getElementById('site-head');
-const mobileBar = document.getElementById('mobile-bar');
-const chapterReadout = document.getElementById('chapter-readout');
-let lastScrollY = 0;
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
 
-lenis.on('scroll', ({ scroll, limit }) => {
-  const y = scroll;
-  // Header background
-  if (y > 80) siteHead.classList.add('scrolled');
-  else siteHead.classList.remove('scrolled');
+hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
 
-  // Mobile bar
-  if (y > window.innerHeight * 0.6 && y < limit - 100) mobileBar.classList.add('show');
-  else mobileBar.classList.remove('show');
-
-  // Chapter readout
-  if (y > 200 && y < limit - 200) chapterReadout.classList.remove('hide');
-  else chapterReadout.classList.add('hide');
-
-  lastScrollY = y;
+window.addEventListener('scroll', () => {
+  siteHead.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ---------- SCROLL-TRIGGERED REVEAL ANIMATIONS ----------
-gsap.registerPlugin(ScrollTrigger);
+/* ── Intersection Observer for fade-up ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Fade-up reveal for sections
-const revealSections = document.querySelectorAll('.section-header, .story-content, .story-visual, .music-layout, .apparel-showcase, .book-layout, .media-grid, .community-bento, .join-inner');
-revealSections.forEach(el => {
-  gsap.fromTo(el,
-    { y: 50, opacity: 0 },
-    {
-      y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' }
-    }
-  );
-});
-
-// Path cards staggered
-gsap.fromTo('.path-card',
-  { y: 60, opacity: 0 },
-  {
-    y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '.path-cards', start: 'top 80%', toggleActions: 'play none none none' }
-  }
-);
-
-// Story stats counter animation
-document.querySelectorAll('.stat-num').forEach(stat => {
-  ScrollTrigger.create({
-    trigger: stat,
-    start: 'top 88%',
-    onEnter: () => { gsap.fromTo(stat, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.5)' }); }
-  });
-});
-
-// Track items staggered
-gsap.fromTo('.track-item',
-  { x: -30, opacity: 0 },
-  {
-    x: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power3.out',
-    scrollTrigger: { trigger: '.track-list', start: 'top 85%', toggleActions: 'play none none none' }
-  }
-);
-
-// Bento cards staggered
-gsap.fromTo('.bento-card',
-  { y: 40, opacity: 0 },
-  {
-    y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power3.out',
-    scrollTrigger: { trigger: '.community-bento', start: 'top 84%', toggleActions: 'play none none none' }
-  }
-);
-
-// ---------- HERO PARTICLES ----------
-(function() {
+/* ── Hero Particles ── */
+(function(){
   const canvas = document.getElementById('hero-particles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let particles = [];
-  let animId;
-
-  function resize() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+  function resize(){ canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
+  function create(){
+    particles = Array.from({length: 50}, () => ({
+      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      r: Math.random()*2+0.5, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4,
+      o: Math.random()*0.4+0.1, p: Math.random()*Math.PI*2,
+      hue: [168,249,59,234][Math.floor(Math.random()*4)]
+    }));
   }
-
-  function createParticles() {
-    const count = Math.min(50, Math.floor(window.innerWidth / 30));
-    particles = [];
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.5,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
-        pulse: Math.random() * Math.PI * 2
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const t = performance.now() * 0.001;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const t = performance.now()*0.001;
     particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-
-      const alpha = p.opacity + Math.sin(t * 1.5 + p.pulse) * 0.2;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,164,78,${Math.max(0.02, alpha)})`;
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
+      if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
+      const a = p.o + Math.sin(t*1.5+p.p)*0.15;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `hsla(${p.hue},70%,60%,${Math.max(0.03,a)})`;
       ctx.fill();
     });
-    animId = requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
   }
-
-  resize();
-  createParticles();
-  draw();
-  window.addEventListener('resize', () => { resize(); createParticles(); });
+  resize(); create(); draw();
+  window.addEventListener('resize', ()=>{resize();create()});
 })();
 
-// ---------- SOCIAL PILL HOVER EFFECT ----------
-document.querySelectorAll('.social-pill').forEach(pill => {
-  pill.addEventListener('mouseenter', () => {
-    gsap.to(pill, { scale: 1.04, duration: 0.25, ease: 'power2.out' });
-  });
-  pill.addEventListener('mouseleave', () => {
-    gsap.to(pill, { scale: 1, duration: 0.25, ease: 'power2.out' });
-  });
-});
+/* ── Toast ── */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
 
-// ---------- TRACK PLAY BUTTONS ----------
-document.querySelectorAll('.track-play').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const isPlaying = this.textContent === '⏸';
-    // Reset all
-    document.querySelectorAll('.track-play').forEach(b => { b.textContent = '▶'; b.style.background = ''; b.style.color = ''; });
-    if (!isPlaying) {
-      this.textContent = '⏸';
-      this.style.background = 'rgba(200,164,78,0.2)';
-      this.style.color = '#F0D68A';
-    }
-  });
-});
-
-// ---------- SMOOTH ANCHOR SCROLLING ----------
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: -60, duration: 1.2 });
-    }
-  });
-});
-
-/* TODO MANIFEST — Complete before going live:
- * [ ] Replace GHL form slot with actual Go High Level form embed code
- * [ ] Update YouTube embed with real channel iframe
- * [ ] Add podcast platform links when available
- * [ ] Replace Formspree action with GHL webhook or form handler
- * [ ] Confirm phone number (1-800-813-2959) is correct and active
- * [ ] Add real product images for hats and tees on WooCommerce
- * [ ] Set up GHL automation: form submit → welcome email → tag → pipeline
- * [ ] Add Facebook Pixel / Google Analytics tracking
- * [ ] Set up SMS opt-in workflow in GHL
- * [ ] Create "From the Streets to Legendary" free PDF guide for email capture lead magnet
- * [ ] Add real testimonials / reviews from community members
- * [ ] Set up abandoned cart automation in WooCommerce → GHL
- * [ ] Configure GHL pipeline stages: Lead → Engaged → Customer → Advocate
- */
-
-console.log('%c🥇 L3GENDARY %c— From the Streets to Legendary',
-  'font-size:1.2em;font-weight:bold;color:#C8A44E', 'color:#F8F6F0');
-console.log('%c⬢ GHL-ready form slot at #join  |  %c?jump=<px> dev contract active',
-  'color:#C8A44E', 'color:#6B6760');
+document.getElementById('drawer-count').textContent = cart.count;
+cart.onChange(() => { document.getElementById('drawer-count').textContent = cart.count; });
 </script>
 </body>
 </html>

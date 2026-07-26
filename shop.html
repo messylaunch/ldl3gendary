@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — L3GENDARY | Music, Apparel, Books</title>
+<meta name="description" content="Shop the full L3GENDARY catalog — music, Rawlo Apparel, and the book.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-head scrolled" id="site-head">
+  <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
+  <nav class="head-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html" class="nav-link active">Shop</a>
+    <a href="shop.html?category=music" class="nav-link">Music</a>
+    <a href="shop.html?category=apparel" class="nav-link">Apparel</a>
+    <a href="shop.html?category=book" class="nav-link">Book</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="head-cart-btn" data-cart-toggle>🛒 <span id="cart-count">0</span></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop All</a>
+  <a href="shop.html?category=music">Music</a>
+  <a href="shop.html?category=apparel">Apparel</a>
+  <a href="shop.html?category=book">Book</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-head">Cart (<span id="drawer-count">0</span>)<button class="cart-drawer-close" id="cart-drawer-close">&times;</button></div>
+  <div class="cart-drawer-inner" id="mini-cart"></div>
+</aside>
+
+<!-- ═══════════════ SHOP HERO ═══════════════ -->
+<section class="shop-hero">
+  <div class="wrap">
+    <h1 id="shop-title">The Catalog</h1>
+    <p style="color:var(--text-muted);margin-top:10px;font-size:15px" id="shop-sub">29 products across music, apparel, and books.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ FILTERS ═══════════════ -->
+<div class="wrap">
+  <div class="shop-filters" id="shop-filters">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="music">🎵 Music</button>
+    <button class="filter-btn" data-cat="apparel">👕 Apparel</button>
+    <button class="filter-btn" data-cat="book">📖 Books</button>
+    <button class="filter-btn" data-cat="bundle">💰 Bundles</button>
+  </div>
+</div>
+
+<!-- ═══════════════ PRODUCT GRID ═══════════════ -->
+<div class="wrap">
+  <div class="shop-grid" id="shop-grid"></div>
+  <div style="text-align:center;padding:40px 0;color:var(--text-dim);display:none" id="shop-empty">
+    <p style="font-size:1.2rem;margin-bottom:8px">No products found</p>
+    <p>Try a different filter.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p></div>
+      <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Rawlo Apparel</a><a href="product.html?id=29">The Book</a></div>
+      <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett">Facebook</a><a href="https://www.youtube.com/@863l3gendary">YouTube</a><a href="https://www.instagram.com/863l3gendary">Instagram</a></div>
+      <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="tel:+18008132959">1-800-813-2959</a><a href="cart.html">Cart</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2024 L3GENDARY PRODUCTS</span><span>FROM THE STREETS TO LEGENDARY</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', ()=>mobileNav.classList.toggle('open'));
+
+document.getElementById('drawer-count').textContent = cart.count;
+cart.onChange(()=>{document.getElementById('drawer-count').textContent=cart.count});
+
+/* ── URL-based filtering ── */
+const params = new URLSearchParams(window.location.search);
+let activeCat = params.get('category') || 'all';
+
+/* Update filter buttons */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  if (btn.dataset.cat === activeCat) btn.classList.add('active');
+  else btn.classList.remove('active');
+});
+
+/* Update page title */
+const catMeta = { music:'Music — L3GENDARY', apparel:'Rawlo Apparel — L3GENDARY', book:'Books — L3GENDARY', bundle:'Bundles — L3GENDARY', all:'Shop — L3GENDARY' };
+const catSubs = { music:'17 tracks of raw storytelling.', apparel:'11 pieces. Streetwear with soul.', book:'The story behind the movement.', bundle:'Best value. Get more for less.', all:'29 products across music, apparel, and books.' };
+document.getElementById('shop-title').textContent = activeCat==='all'?'The Catalog':L3_CATEGORIES[activeCat]?.name||'Shop';
+document.getElementById('shop-sub').textContent = catSubs[activeCat]||catSubs.all;
+
+/* ── Render products ── */
+function renderProducts(cat){
+  let items = cat==='all' ? L3_PRODUCTS : L3_PRODUCTS.filter(p=>p.category===cat);
+  const grid = document.getElementById('shop-grid');
+  const empty = document.getElementById('shop-empty');
+  if (!items.length){ grid.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  grid.innerHTML = items.map(p=>`<a href="product.html?id=${p.id}" class="prod-card fade-up">
+    ${p.tag?`<span class="prod-tag" style="background:${p.color};color:#fff">${p.tag}</span>`:''}
+    <div class="prod-card-img">
+      ${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}
+      <div class="prod-card-placeholder" style="${p.image?'display:none':''};color:${p.color}">${p.category==='music'?'🎵':p.category==='apparel'?'👕':p.category==='book'?'📖':'💰'}</div>
+    </div>
+    <div class="prod-card-body">
+      <div class="prod-card-cat ${p.category}">${p.type}</div>
+      <h4>${p.name}</h4>
+      <div class="artist">${p.artist}</div>
+      <div class="prod-card-foot">
+        <span class="prod-price">${p.salePrice?`<span class="orig">$${p.price.toFixed(2)}</span>$${p.salePrice.toFixed(2)}`:`$${p.price.toFixed(2)}`}</span>
+        <span class="btn btn-sm" style="background:${p.color};color:#fff">View →</span>
+      </div>
+    </div>
+  </a>`).join('');
+}
+
+renderProducts(activeCat);
+
+/* ── Filter clicks ── */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    window.history.replaceState({},'',`shop.html${activeCat==='all'?'':'?category='+activeCat}`);
+    document.getElementById('shop-title').textContent = activeCat==='all'?'The Catalog':L3_CATEGORIES[activeCat]?.name||'Shop';
+    document.getElementById('shop-sub').textContent = catSubs[activeCat]||catSubs.all;
+    renderProducts(activeCat);
+  });
+});
+
+/* Fade-up observer */
+const observer = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+setTimeout(()=>document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el)),100);
+
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
+</script>
+</body>
+</html>

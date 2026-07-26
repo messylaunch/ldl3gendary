@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart — L3GENDARY</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="site-head scrolled">
+  <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
+  <nav class="head-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html" class="nav-link">Shop</a>
+    <a href="cart.html" class="nav-link active">Cart</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="head-cart-btn" data-cart-toggle>🛒 <span id="cart-count">0</span></button>
+  </div>
+</header>
+
+<section class="cart-page">
+  <div class="wrap">
+    <h1 id="cart-title">Your Cart</h1>
+    <div id="cart-content"></div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.</p></div>
+      <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a></div>
+      <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett">Facebook</a><a href="https://www.youtube.com/@863l3gendary">YouTube</a></div>
+      <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="checkout.html">Checkout</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+document.getElementById('cart-count').textContent = cart.count;
+
+function renderCart(){
+  const el = document.getElementById('cart-content');
+  const title = document.getElementById('cart-title');
+
+  if (cart.isEmpty){
+    title.textContent = 'Your Cart is Empty';
+    el.innerHTML = `<div class="cart-empty"><h2>🛒 Nothing here yet</h2><p>Start building your legendary collection.</p><a href="shop.html" class="btn btn-accent btn-lg">Browse Shop →</a></div>`;
+    return;
+  }
+
+  title.textContent = `Your Cart (${cart.count} item${cart.count!==1?'s':''})`;
+  el.innerHTML = `
+    <div class="cart-layout">
+      <div class="cart-items">
+        ${cart.items.map(i=>`
+          <div class="cart-item-row">
+            <div class="cart-item-img" style="background:${i.color||'#333'}">
+              ${i.image?`<img src="${i.image}" alt="${i.name}" onerror="this.style.display='none';this.parentElement.textContent='🛒'">`:'🛒'}
+            </div>
+            <div>
+              <div class="cart-item-name">${i.name}</div>
+              <div class="cart-item-meta">${i.artist}${i.variant?` · Size: ${i.variant}`:''}</div>
+            </div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="cart.updateQty(${i.id},${i.qty-1},${i.variant?`'${i.variant}'`:'null'});renderCart()">−</button>
+              <input class="qty-input" value="${i.qty}" readonly>
+              <button class="qty-btn" onclick="cart.updateQty(${i.id},${i.qty+1},${i.variant?`'${i.variant}'`:'null'});renderCart()">+</button>
+            </div>
+            <div class="cart-item-price">$${(i.price*i.qty).toFixed(2)}</div>
+            <button class="cart-item-remove" onclick="cart.remove(${i.id},${i.variant?`'${i.variant}'`:'null'});renderCart()" title="Remove">×</button>
+          </div>
+        `).join('')}
+      </div>
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span>$${cart.subtotal.toFixed(2)}</span></div>
+        <div class="summary-row"><span>Tax (est.)</span><span>$${cart.tax.toFixed(2)}</span></div>
+        <div class="summary-row"><span>Shipping</span><span>${cart.shipping===0?'<span style="color:var(--success)">Free</span>':`$${cart.shipping.toFixed(2)}`}</span></div>
+        <div class="summary-row total"><span>Total</span><span>$${cart.total.toFixed(2)}</span></div>
+        ${cart.subtotal<75?`<p style="font-size:11px;color:var(--text-dim);margin-top:8px">Add $${(75-cart.subtotal).toFixed(2)} more for free shipping</p>`:''}
+        <a href="checkout.html" class="btn btn-accent">Proceed to Checkout →</a>
+        <button class="btn btn-ghost" style="width:100%;margin-top:8px" onclick="cart.clear();renderCart();showToast('Cart cleared')">Clear Cart</button>
+      </div>
+    </div>
+  `;
+}
+
+renderCart();
+cart.onChange(()=>{renderCart();document.getElementById('cart-count').textContent=cart.count});
+
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — L3GENDARY</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23EAB308'/%3E%3Cstop offset='50%25' stop-color='%23F97316'/%3E%3Cstop offset='100%25' stop-color='%23A855F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2308080F'/%3E%3Cpath d='M18 48 L32 16 L46 48Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="site-head scrolled" id="site-head">
+  <a href="index.html" class="head-brand"><span>L3GENDARY</span></a>
+  <nav class="head-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html" class="nav-link active">Shop</a>
+    <a href="shop.html?category=music" class="nav-link">Music</a>
+    <a href="shop.html?category=apparel" class="nav-link">Apparel</a>
+    <a href="shop.html?category=book" class="nav-link">Book</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="head-cart-btn" data-cart-toggle>🛒 <span id="cart-count">0</span></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="shop.html">Shop All</a>
+  <a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Apparel</a>
+  <a href="shop.html?category=book">Book</a><a href="cart.html">Cart</a>
+</nav>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-head">Cart (<span id="drawer-count">0</span>)<button class="cart-drawer-close" id="cart-drawer-close">&times;</button></div>
+  <div class="cart-drawer-inner" id="mini-cart"></div>
+</aside>
+
+<section class="prod-detail" id="prod-detail">
+  <div class="wrap">
+    <div class="prod-detail-grid" id="prod-content">
+      <!-- Dynamically filled -->
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span>L3GENDARY</span></div><p style="font-size:13px;color:var(--text-muted);margin-top:8px">Music. Apparel. Books. Community.<br>Central Florida, USA</p></div>
+      <div class="foot-col"><h4>SHOP</h4><a href="shop.html">All Products</a><a href="shop.html?category=music">Music</a><a href="shop.html?category=apparel">Rawlo Apparel</a></div>
+      <div class="foot-col"><h4>CONNECT</h4><a href="https://www.facebook.com/tavius.leverett">Facebook</a><a href="https://www.youtube.com/@863l3gendary">YouTube</a></div>
+      <div class="foot-col"><h4>INFO</h4><a href="mailto:Corporate@ldl3gendary.com">Contact</a><a href="cart.html">Cart</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2024 L3GENDARY PRODUCTS</span><span>FROM THE STREETS TO LEGENDARY</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+const hamburger = document.getElementById('hamburger');
+hamburger.addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
+
+document.getElementById('drawer-count').textContent = cart.count;
+cart.onChange(()=>{document.getElementById('drawer-count').textContent=cart.count});
+
+/* ── Load product from URL ── */
+const params = new URLSearchParams(window.location.search);
+const prodId = parseInt(params.get('id'));
+const product = L3_PRODUCTS.find(p=>p.id===prodId);
+
+const container = document.getElementById('prod-content');
+if (!product) {
+  container.innerHTML = `<div style="text-align:center;padding:60px"><h2>Product Not Found</h2><p style="color:var(--text-muted);margin:12px 0 24px">The product you're looking for doesn't exist.</p><a href="shop.html" class="btn btn-accent">Browse Shop</a></div>`;
+} else {
+  document.title = `${product.name} — L3GENDARY`;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', product.description);
+
+  const catName = L3_CATEGORIES[product.category]?.name || product.category;
+  const catIcon = L3_CATEGORIES[product.category]?.icon || '';
+  const hasVariants = product.variants && product.variants.length > 0;
+  const isBundle = product.id === 17;
+
+  container.innerHTML = `
+    <div class="prod-gallery">
+      <div class="prod-gallery-main" id="gallery-main">
+        ${product.image
+          ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+          : ''}
+        <div class="prod-gallery-placeholder" style="${product.image?'display:none':''};color:${product.color}">
+          ${product.category==='music'?'🎵':product.category==='apparel'?'👕':'📖'}
+        </div>
+      </div>
+    </div>
+    <div class="prod-info">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <a href="shop.html?category=${product.category}">${catName}</a> / ${product.name}
+      </div>
+      ${product.tag ? `<span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;background:${product.color};color:#fff;margin-bottom:12px">${product.tag}</span>` : ''}
+      <h1>${product.name}</h1>
+      <div class="prod-artist">${product.artist} · ${catIcon} ${product.type}</div>
+      <div class="prod-price-large">
+        ${product.salePrice ? `<span class="orig">$${product.price.toFixed(2)}</span> $${product.salePrice.toFixed(2)}` : `$${product.price.toFixed(2)}`}
+        ${product.salePrice ? `<span style="font-size:0.85rem;color:var(--success);font-weight:600;margin-left:8px">Save $${(product.price-product.salePrice).toFixed(2)}</span>` : ''}
+      </div>
+      <div class="prod-desc">${product.description}</div>
+
+      ${hasVariants ? `
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Size</div>
+        <div class="prod-variants" id="prod-variants">
+          ${product.variants.map((v,i)=>`<button class="var-btn ${i===0?'active':''}" data-var="${v}">${v}</button>`).join('')}
+        </div>
+      ` : ''}
+
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px">Quantity</div>
+      <div class="prod-qty" id="prod-qty">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input class="qty-input" id="qty-input" type="number" value="1" min="1" max="99" readonly>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <div class="prod-actions">
+        <button class="btn btn-accent btn-lg" id="btn-add-cart" onclick="addToCart()">Add to Cart — <span id="btn-price">${product.salePrice ? '$'+product.salePrice.toFixed(2) : '$'+product.price.toFixed(2)}</span></button>
+        <button class="btn btn-ghost btn-lg" onclick="addToCart();window.location='checkout.html'">Buy Now →</button>
+      </div>
+
+      ${isBundle ? `
+        <div style="margin-top:24px;padding:16px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm)">
+          <div style="font-weight:700;color:var(--success);margin-bottom:6px">💰 Bundle Includes All 17 Tracks:</div>
+          <div style="font-size:12px;color:var(--text-muted);line-height:1.8;column-count:2">
+            ${L3_PRODUCTS.filter(p=>p.category==='music'&&p.id!==17).map(p=>p.name).join(', ')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${product.category==='music' && !isBundle ? `
+        <div style="margin-top:20px;padding:14px;background:var(--music-bg);border:1px solid rgba(168,85,247,0.2);border-radius:var(--radius-sm)">
+          <span style="font-weight:600;color:var(--music)">💡 Tip:</span>
+          <span style="font-size:13px;color:var(--text-muted)"> Get all 17 tracks for just <strong style="color:var(--success)">$4.99</strong> — <a href="product.html?id=17" style="color:var(--music);text-decoration:underline">check out the bundle</a></span>
+        </div>
+      ` : ''}
+    </div>
+  `;
+
+  /* Variant selection */
+  let selectedVariant = hasVariants ? product.variants[0] : null;
+  document.querySelectorAll('.var-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.var-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedVariant = btn.dataset.var;
+    });
+  });
+}
+
+/* Qty controls */
+function changeQty(delta){
+  const input = document.getElementById('qty-input');
+  let v = parseInt(input.value) + delta;
+  if (v<1) v=1; if (v>99) v=99;
+  input.value = v;
+  updateBtnPrice();
+}
+function getQty(){ return parseInt(document.getElementById('qty-input').value)||1; }
+function updateBtnPrice(){
+  const price = product.salePrice||product.price;
+  document.getElementById('btn-price').textContent = '$'+(price*getQty()).toFixed(2);
+}
+
+function addToCart(){
+  cart.add(product.id, getQty(), selectedVariant);
+  const btn = document.getElementById('btn-add-cart');
+  btn.textContent = '✓ Added!';
+  btn.style.background = '#22C55E';
+  showToast(`${product.name} added to cart!`);
+  setTimeout(()=>{
+    btn.innerHTML = `Add to Cart — <span id="btn-price">${product.salePrice?'$'+product.salePrice.toFixed(2):'$'+product.price.toFixed(2)}</span>`;
+    btn.style.background = '';
+  },1800);
+  /* Re-bind price update */
+  updateBtnPrice();
+}
+
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
+</script>
+</body>
+</html>
